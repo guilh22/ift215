@@ -22,17 +22,17 @@
     }
     
     if($CON->isConnected() && $CON->isAdmin()){
-        include '../view/headerConAd.php';
+        include 'view/headerConAd.php';
     }else if($CON->isConnected()){
-        include '../view/headerCon.php';
+        include 'view/headerCon.php';
     }else{
-        include '../view/header.php';
+        include "view/header.php";
     }
     
     
-    include '../view/accueil.php';
+    include 'view/accueil.php';
     
-    include '../view/footer.php';
+    include 'view/footer.php';
     
 
 ?>
