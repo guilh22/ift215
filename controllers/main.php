@@ -37,6 +37,7 @@
     }
     
     $MENU = array();
+    $MENU["currentPage"] = $page;
     switch($page){
         case "forumGen" :
             $MENU["accueil"] = true;
