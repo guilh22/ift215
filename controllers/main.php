@@ -38,9 +38,13 @@
     $MENU = array();
     $MENU["currentPage"] = $page;
     switch($page){
-        case "forumGen" :
-            $MENU["accueil"] = true;
-            include 'view/accueil.php';
+        case "forum" :
+            $MENU["forum"] = true;
+            if($_REQUEST["subject"] != null){
+                include 'view/accueil.php';
+            }else{
+                include 'view/accueil.php';
+            }            
         break;
         case "forumGenSujet" :
             $MENU["accueil"] = true;
