@@ -4,6 +4,6 @@
     
     
     $COOKIES = new Cookie();
-    $CON = new Login();
+    $CON = new Login($COOKIES);
     
 ?>

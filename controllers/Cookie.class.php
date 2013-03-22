@@ -21,11 +21,16 @@ class Cookie {
         if(isset($_COOKIE["ift215"])){
             $this->myCookie = $_COOKIE["ift215"];
         }else{
-            $this->myCookie = array("isAdmin" => false, "isConnected" => false);
+            $this->myCookie = array("isAdmin" => false, "isConnected" => false, "post" => array());
         }
-        return $this;
+        return self::$instance;
     }
-    
+    public function getInstance() {
+        if(!isset(self::$instance)){
+            return self::$instance;
+        }
+        self::$instance = $this; 
+    }
     public function setCookieAttr($key = "", $val = "", $arr = array()){
         if(count($arr) > 0){
             setcookie("ift215", $arr, time()+3600*24*30);

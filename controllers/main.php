@@ -15,7 +15,10 @@
             header("location:".$url);
         break;
         
-        case "":
+        case "post":
+            $post = $COOKIES->getCookieVal("post");
+            $post[] = array("user" => $CON->getUsername(), "comment" => $_REQUEST["comment"]);
+            $COOKIES->setCookieAttr("post");
         break;    
         default:
         break;
