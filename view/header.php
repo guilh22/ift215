@@ -16,8 +16,8 @@
                         <input type="text" id="utilisateur" name="utilisateur" size="30"/></br>
                         <label>Mot de passe: </label>: 
                         <input type="text" id="motDePasse" name="motDePasse" size="30"/></br>
-                        <img id="inscrire" src="images/header/inscrire.jpg"/>
-                        <img id="Déconnexion" src="images/header/deconnexion.jpg"/>
+                        <input type="button" value="S'inscrire">
+                        <input type="button" value="Connexion">
                     </form>
                 </div>
                 <nav>
@@ -34,8 +34,7 @@
                             </ul>
                         </li>
                         <li class="<?php echo ($MENU["calendrier"] == true)? "selected":""; ?>"><a href="?page=calendrier">Calendrier</a></li>
-                        <li class="<?php echo ($MENU["faq"] == true)? "selected":""; ?>"><a href="?page=faq">FAQ</a></li>   
-                        <li class="<?php echo ($MENU["votreEspace"] == true)? "selected":""; ?>"><a href="?page=votreEspace">Votre espace</a></li>
+                        <li class="<?php echo ($MENU["faq"] == true)? "selected":""; ?>"><a href="?page=faq">FAQ</a></li>
                     </ul>
                 </nav>
            </header>
