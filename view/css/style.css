@@ -1,17 +1,17 @@
 wrapper { 
     display: block;
 }
-nav{
-    
-}
 #logo{
     display: inline-block;
-    width: 600px;
+    width: 596px;
     height: 148px;
 }
 #connexion{
     display:inline-block;
-    width: 360px;
+    width: 330px;
     height:148px;
+    float: right;
+    text-align: right;
+    padding: 15px;
 }
 

@@ -13,16 +13,16 @@
                 <div id = "connexion" >
                     <form method="post" action="?page=<?php echo $MENU["currenPage"]; ?>&action=login" >
                         <label>Utilisateur: </label>: 
-                        <input type="text" id="utilisateur" name="utilisateur" size="40"/></br>
+                        <input type="text" id="utilisateur" name="utilisateur" size="30"/></br>
                         <label>Mot de passe: </label>: 
-                        <input type="text" id="motDePasse" name="motDePasse" size="40"/></br>
+                        <input type="text" id="motDePasse" name="motDePasse" size="30"/></br>
                         <img id="inscrire" src="images/header/inscrire.jpg"/>
                         <img id="Déconnexion" src="images/header/deconnexion.jpg"/>
                     </form>
                 </div>
                 <nav>
                     <ul>
-                        <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum"></a></li>
+                        <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum">Forum</a></li>
                         <li class="<?php echo ($MENU["evenement"] == true)? "selected":""; ?>"><a href="?page=evenement">Évènement</a></li>
                         <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="?page=informations">Informations</a>
                             <ul>

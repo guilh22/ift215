@@ -20,7 +20,7 @@
                 </div>
                 <nav>
                     <ul>
-                        <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum"></a></li>
+                        <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum"></a>Forum</li>
                         <li class="<?php echo ($MENU["evenement"] == true)? "selected":""; ?>"><a href="?page=evenement">Évènement</a></li>
                         <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="?page=informations">Informations</a>
                             <ul>
