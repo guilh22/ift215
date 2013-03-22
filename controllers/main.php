@@ -1,15 +1,18 @@
 <?php
     include "ctnInclude.php";
     
+    $COOKIES = new Cookie();
+    $USER = new User($COOKIES);
+    
     $page = $_REQUEST["page"];
     $action = $_REQUEST["action"];
     
     switch($action){
         case "login" :
-            $CON->connexion($_REQUEST["user"],$_REQUEST["pass"]);
+            $USER->connexion($_REQUEST["user"],$_REQUEST["pass"]);
         break;
         case "logout" :
-            $CON->deconnexion();
+            $USER->deconnexion();
             $url = "";
             foreach($_GET as $key => $val){ if($key != "action"){$url .= $key."=".$val; }}
             header("location:".$url);
@@ -17,23 +20,37 @@
         
         case "post":
             $post = $COOKIES->getCookieVal("post");
-            $post[] = array("user" => $CON->getUsername(), "comment" => $_REQUEST["comment"]);
+            $post[] = array("user" => $USER->getUsername(), "comment" => $_REQUEST["comment"]);
             $COOKIES->setCookieAttr("post");
         break;    
         default:
         break;
     }
     
-    if($CON->isConnected() && $CON->isAdmin()){
+    if($USER->isConnected() && $USER->isAdmin()){
         include 'view/headerConAd.php';
-    }else if($CON->isConnected()){
+    }else if($USER->isConnected()){
         include 'view/headerCon.php';
     }else{
         include "view/header.php";
     }
     
-    
-    include 'view/accueil.php';
+    $MENU = array();
+    switch($page){
+        case "forumGen" :
+            include 'view/accueil.php';
+        break;
+        case "forumGenSujet" :
+            include 'view/accueil.php';
+        break;
+        case "forumGenSujetPost" :
+            include 'view/accueil.php';
+        break;
+        default:
+            $MENU["accueil"] = true;
+            include 'view/accueil.php';
+        break;
+    }
     
     include 'view/footer.php';
     

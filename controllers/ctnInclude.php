@@ -3,7 +3,6 @@
     include "Login.class.php";
     
     
-    $COOKIES = new Cookie();
-    $CON = new Login($COOKIES);
+    
     
 ?>

@@ -14,7 +14,7 @@ class Cookie {
     public static $instance = NULL;
     private $myCookie;
     public function __construct() {
-        if(!isset(self::$instance)){
+        if(isset(self::$instance)){
             return self::$instance;
         }
         self::$instance = $this;
@@ -35,7 +35,7 @@ class Cookie {
     public function setCookieAttr($key = "", $val = "", $arr = array()){
         if(count($arr) > 0){
             setcookie("ift215", $arr, time()+3600*24*30);
-        }else if($key != "" && $val != "" && isset($this->myCookie[$key])){
+        }else if($key != ""){
             $this->myCookie[$key] = $val;
         }
     }
