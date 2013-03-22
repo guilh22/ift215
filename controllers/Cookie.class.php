@@ -18,7 +18,11 @@ class Cookie {
             return self::$instance;
         }
         self::$instance = $this;
-        $this->myCookie = $_COOKIE["ift215"];
+        if(isset($_COOKIE["ift215"])){
+            $this->myCookie = $_COOKIE["ift215"];
+        }else{
+            $this->myCookie = array("isAdmin" => false, "isConnected" => false);
+        }
         return $this;
     }
     
