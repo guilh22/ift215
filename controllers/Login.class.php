@@ -25,10 +25,11 @@ class Login {
         return $this;
     }
     public function getInstance() {
-        if(!isset(self::$instance)){
+        if(isset(self::$instance)){
             return self::$instance;
         }
         self::$instance = $this; 
+        return self::$instance;
     }
     public function connexion($user = "", $pass = ""){
          if($user == "admin" && $pass == "admin"){             

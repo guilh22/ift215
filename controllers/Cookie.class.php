@@ -26,10 +26,11 @@ class Cookie {
         return self::$instance;
     }
     public function getInstance() {
-        if(!isset(self::$instance)){
+        if(isset(self::$instance)){
             return self::$instance;
         }
         self::$instance = $this; 
+        return self::$instance;
     }
     public function setCookieAttr($key = "", $val = "", $arr = array()){
         if(count($arr) > 0){
