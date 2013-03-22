@@ -18,20 +18,21 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="./view/forum.php">Forum</a></li>
-                        <li><a href="./view/evenement.php">Évènement</a></li>
-                        <li><a href="./view/evenement.php">Information</a>
+                        <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="./view/forum.php">Forum</a></li>
+                        <li class="<?php echo ($MENU["evenement"] == true)? "selected":""; ?>"><a href="./view/evenement.php">Évènement</a></li>
+                        <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="./view/informations.php">Informations</a>
                             <ul>
-                                <li><a href="./view/coordonnee.php">Coordonnée</a></li>
-                                <li><a href="./view/equipe.php">Équipe</a></li>
-                                <li><a href="./view/equipement.php">Équipement</a></li>
-                                <li><a href="./view/historique.php">Coordonnée</a></li>
-                                <li><a href="./view/reglements.php">Règlements</a></li>
+                                <li class="<?php echo ($MENU["coordonnee"] == true)? "selected":""; ?>"><a href="./view/coordonnee.php">Coordonnée</a></li>
+                                <li class="<?php echo ($MENU["equipe"] == true)? "selected":""; ?>"><a href="./view/equipe.php">Équipe</a></li>
+                                <li class="<?php echo ($MENU["equipement"] == true)? "selected":""; ?>"><a href="./view/equipement.php">Équipement</a></li>
+                                <li class="<?php echo ($MENU["historique"] == true)? "selected":""; ?>"><a href="./view/historique.php">Coordonnée</a></li>
+                                <li class="<?php echo ($MENU["reglements"] == true)? "selected":""; ?>"><a href="./view/reglements.php">Règlements</a></li>
                             </ul>
                         </li>
-                        <li><a href="./view/calendrier.php">Calendrier</a></li>
-                        <li><a href="./view/faq.php">FAQ</a></li>
-                        <li><a href="./view/votre_espace.php">Votre espace</a></li>
+                        <li class="<?php echo ($MENU["calendrier"] == true)? "selected":""; ?>"><a href="./view/calendrier.php">Calendrier</a></li>
+                        <li class="<?php echo ($MENU["faq"] == true)? "selected":""; ?>"><a href="./view/faq.php">FAQ</a></li>   
+                        <li class="<?php echo ($MENU["gestionLan"] == true)? "selected":""; ?>"><a href="./view/gestionLan.php"></a>Gestion LAN</li>   
+                        <li class="<?php echo ($MENU["votreEspace"] == true)? "selected":""; ?>"><a href="./view/votreEspace.php">Votre espace</a></li>
                     </ul>
                 </nav>
            </header>

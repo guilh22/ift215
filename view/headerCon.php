@@ -31,7 +31,7 @@
                         </li>
                         <li class="<?php echo ($MENU["calendrier"] == true)? "selected":""; ?>"><a href="./view/calendrier.php">Calendrier</a></li>
                         <li class="<?php echo ($MENU["faq"] == true)? "selected":""; ?>"><a href="./view/faq.php">FAQ</a></li>   
-                        <li class="<?php echo ($MENU["votreEspace"] == true)? "selected":""; ?>"><a href="./view/votre_espace.php">Votre espace</a></li>
+                        <li class="<?php echo ($MENU["votreEspace"] == true)? "selected":""; ?>"><a href="./view/votreEspace.php">Votre espace</a></li>
                     </ul>
                 </nav>
            </header>
