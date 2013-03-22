@@ -18,6 +18,10 @@
 .nom{
     border: 1px;
     border-style: solid;
+    margin: 15px;
+}
+.nom img{
+    float: right;
 }
 .date{
     float: right;
@@ -39,4 +43,23 @@
     width: 930px;
     height: 210px;
     margin: 15px;
+}
+.contenue{
+    padding: 15px;
+}
+.contenue strong{
+    
+}
+#affiche_evenement{
+    float: left;
+    width: 115px;
+    height: 130px;
+}
+#titre_evenement{
+    display: inline-block;
+    float: left;
+    font-size: 1.2em;
+}
+.clear{
+    clear: both;
 }
