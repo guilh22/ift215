@@ -3,20 +3,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>IFT215</title>
-        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/style2.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div class="wrapper"> <?php // end in footer.php ?>
             <header>
-                <img id="logo" src="/images/header/logo.jpg" alt="No Man’Z Lan Logo"/>
+                <img id="logo" src="images/header/logo.jpg" alt="No Man’Z Lan Logo"/>
                 <div id = "connexion" >
                     <form method="post" action="?page=<?php echo $MENU["currenPage"]; ?>&action=login" >
                         <label>Utilisateur: </label>: 
                         <input type="text" id="utilisateur" name="utilisateur" size="40"/></br>
                         <label>Mot de passe: </label>: 
                         <input type="text" id="motDePasse" name="motDePasse" size="40"/></br>
-                        <img id="inscrire" src="/images/header/inscrire.jpg"/>
-                        <img id="Déconnexion" src="/images/header/deconnexion.jpg"/>
+                        <img id="inscrire" src="images/header/inscrire.jpg"/>
+                        <img id="Déconnexion" src="images/header/deconnexion.jpg"/>
                     </form>
                 </div>
                 <nav>
