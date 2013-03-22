@@ -54,9 +54,29 @@
             $MENU["accueil"] = true;
             include 'view/accueil.php';
         break;
+        case "coordonnee" :
+            $MENU["coordonnee"] = true;
+            include 'view/coordonnee.php';
+        break;
+        case "calendrier" :
+            $MENU["calendrier"] = true;
+            include 'view/calendrier.php';
+        break;
+        case "equipe" :
+            $MENU["equipe"] = true;
+            include 'view/equipe.php';
+        break;
+        case "equipement" :
+            $MENU["equipement"] = true;
+            include 'view/equipement.php';
+        break;
         case "reglements" :
             $MENU["reglements"] = true;
             include 'view/reglements.php';
+        break;
+        case "historique" :
+            $MENU["historique"] = true;
+            include 'view/historique.php';
         break;
         default:
             $MENU["accueil"] = true;

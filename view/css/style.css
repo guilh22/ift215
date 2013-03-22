@@ -1,6 +1,3 @@
-wrapper { 
-    display: block;
-}
 #logo{
     display: inline-block;
     width: 596px;
@@ -14,4 +11,32 @@ wrapper {
     float: right;
     text-align: right;
     padding: 15px;
+}
+#reglement li{
+    margin-top: 10px;
+}
+.nom{
+    border: 1px;
+    border-style: solid;
+}
+.date{
+    float: right;
+}
+.evenement img{
+    float: left;
+    width: 95px;
+    height: 115px;
+}
+.personne{
+    margin-top: 40px;
+}
+.personne img{
+    float: left;
+    width: 95px;
+    height: 90px;
+}
+#coordonnee img{
+    width: 930px;
+    height: 210px;
+    margin: 15px;
 }

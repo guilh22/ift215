@@ -25,7 +25,7 @@
                     <ul>
                         <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum">Forum</a></li>
                         <li class="<?php echo ($MENU["evenement"] == true)? "selected":""; ?>"><a href="?page=evenement">Évènement</a></li>
-                        <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="?page=informations">Informations</a>
+                        <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="#">Informations</a>
                             <ul>
                                 <li class="<?php echo ($MENU["coordonnee"] == true)? "selected":""; ?>"><a href="?page=coordonnee">Coordonnée</a></li>
                                 <li class="<?php echo ($MENU["equipe"] == true)? "selected":""; ?>"><a href="?page=equipe">Équipe</a></li>
