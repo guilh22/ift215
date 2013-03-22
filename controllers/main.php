@@ -2,7 +2,8 @@
     include "ctnInclude.php";
     
     $COOKIES = new Cookie();
-    $USER = new User($COOKIES);
+    $USER = new User();
+    $FORUM = new Forum();
     
     $page = $_REQUEST["page"];
     $action = $_REQUEST["action"];
@@ -20,9 +21,7 @@
         break;
         
         case "post":
-            $post = $COOKIES->getCookieVal("post");
-            $post[] = array("user" => $USER->getUsername(), "comment" => $_REQUEST["comment"]);
-            $COOKIES->setCookieAttr("post");
+            //$FORUM->addComment($_REQUEST["forum"], $_REQUEST["subject"], $_REQUEST["userPostID"])
         break;    
         default:
         break;

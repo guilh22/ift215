@@ -28,10 +28,12 @@ class Cookie {
                     "Les LAN" => array(
                         "Le trop mega cool lan party" => array(
                             "Administrateur" => array(
+                                "userPostID" => 1,
                                 "comment" => "Voila le trop mega cool lan party est prévue pour le 25 Mai 2013, les inscriptions sont ouvertes!",
                                 "nbReply" => 1,
                                 "reply" => array(
                                     "AnonymeUser1" => array(
+                                        "userPostID" => 2,
                                         "comment" => "J'ai fais un test d'inscription et sa ne semble pas fonctionner y a-t-il un problème avec le site?",
                                         "date" => "13-02-2013",
                                         "nbReply" => 1,
@@ -47,6 +49,7 @@ class Cookie {
                     "Jeux PC" => array(
                         "Counter strike" => array(
                             "AnonymeUser1" => array(
+                                "userPostID" => 1,
                                 "comment" => "Wow le nouveau counter strike est sortie sur Steam j ai trop hate d'y jouer",
                                 "nbReply" => 0,
                                 "reply" => array()
