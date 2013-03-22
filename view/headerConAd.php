@@ -5,6 +5,7 @@
         <title>IFT215</title>
         <link href="view/css/style.css" rel="stylesheet" type="text/css" />
         <link href="view/css/style2.css" rel="stylesheet" type="text/css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="wrapper"> <?php // end in footer.php ?>
