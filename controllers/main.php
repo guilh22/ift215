@@ -7,6 +7,7 @@
     $page = $_REQUEST["page"];
     $action = $_REQUEST["action"];
     
+    
     switch($action){
         case "login" :
             $USER->connexion($_REQUEST["user"],$_REQUEST["pass"]);
@@ -38,12 +39,15 @@
     $MENU = array();
     switch($page){
         case "forumGen" :
+            $MENU["accueil"] = true;
             include 'view/accueil.php';
         break;
         case "forumGenSujet" :
+            $MENU["accueil"] = true;
             include 'view/accueil.php';
         break;
         case "forumGenSujetPost" :
+            $MENU["accueil"] = true;
             include 'view/accueil.php';
         break;
         default:
