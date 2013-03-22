@@ -54,6 +54,10 @@
             $MENU["accueil"] = true;
             include 'view/accueil.php';
         break;
+        case "reglements" :
+            $MENU["reglements"] = true;
+            include 'view/reglements.php';
+        break;
         default:
             $MENU["accueil"] = true;
             include 'view/accueil.php';
