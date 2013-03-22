@@ -16,4 +16,21 @@
                     <img id="inscrire" src="./images/header/inscrire.jpg"/>
                     <img id="Déconnexion" src="./images/header/deconnexion.jpg"/>
                 </div>
+                <nav>
+                    <ul>
+                        <li><a href="./view/forum.php">Forum</a></li>
+                        <li><a href="./view/evenement.php">Évènement</a></li>
+                        <li><a href="./view/evenement.php">Information</a>
+                            <ul>
+                                <li><a href="./view/coordonnee.php">Coordonnée</a></li>
+                                <li><a href="./view/equipe.php">Équipe</a></li>
+                                <li><a href="./view/equipement.php">Équipement</a></li>
+                                <li><a href="./view/historique.php">Coordonnée</a></li>
+                                <li><a href="./view/reglements.php">Règlements</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./view/calendrier.php">Calendrier</a></li>
+                        <li><a href="./view/faq.php">FAQ</a></li>
+                    </ul>
+                </nav>
            </header>
