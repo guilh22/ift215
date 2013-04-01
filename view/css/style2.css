@@ -4,6 +4,7 @@
     margin:0 auto;
     background:#ccc;
     padding-bottom:15px;
+    font-family: Arial;
 }
 header{
     position:relative;
@@ -37,13 +38,13 @@ nav ul li:hover{
     background:#ddd;
 }
 nav ul li a{
-    width:100px;
+    width:120px;
     color:white;
     text-decoration: none;
 }
 nav ul li ul{
     display:none;
-    width:100px;
+    width:104px;
 }
 nav ul li:hover ul{
     display:block;
@@ -76,8 +77,12 @@ h1{
 .forum tr td + td{
 }
 
+.accordeon{
+    margin:5px 0;
+}
 .accordeon .nom{
     background:url(../images/evenement/fleche.png) center right no-repeat;
+    cursor:pointer;
 }
 .accordeon.expanded .nom{
     background:url(../images/evenement/flecheExp.png) center right no-repeat;
