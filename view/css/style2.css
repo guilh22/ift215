@@ -5,61 +5,54 @@
     background:#ccc;
     padding-bottom:15px;
 }
+header{
+    position:relative;
+    z-index: 2;
+}
 .content{
     padding:0 15px;
+    position:relative;
+    z-index:1;
 }
 nav{
-   width:960px; 
-   clear:both;
+    clear:both;
+    background:red;
+    height:32px;
 }
 nav ul{
-   width:960px; 
-   padding:0;
-   background: rgb(233, 34, 34);
-   height:32px;
-   margin:0;
+    display:block;
+    width:960px;
+    height:27px;
+    padding:0;
 }
 nav ul li{
-   float:left;
-   list-style: none;
-   text-align: center;
-   height:32px;
+    list-style:none;
+    height:27px;
+    background:red;
+    float:left;
+    position:relative;
+    padding:5px 10px 0 10px;
 }
 nav ul li:hover{
-   background:#ddd;
+    background:#ddd;
 }
 nav ul li a{
-   display:inline-block;
-   color:white;
-   width:100px;
-   padding:5px 10px;
-   text-decoration: none;
-   text-align: center;
+    width:100px;
+    color:white;
+    text-decoration: none;
 }
 nav ul li ul{
-   display:none;
+    display:none;
+    width:100px;
 }
 nav ul li:hover ul{
-   display:block;
-   width:100px;
+    display:block;
+    position:absolute;
+    top:32px;
+    left:0;
 }
 nav ul li:hover ul li{
-   display:block;
-   width:150px;
-   float:none!important;
-   text-align: center;
-   height:20px;
-   background:red;
-   padding:10px 5px;
-}
-nav ul li:hover ul li:hover{
-   display:block;
-   width:150px;
-   float:none!important;
-   text-align: center;
-   height:20px;
-   background:#ddd;
-   padding:10px 5px;
+    float:none;
 }
 
 h1{

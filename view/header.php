@@ -10,12 +10,12 @@
     <body>
         <div class="wrapper"> <?php // end in footer.php ?>
             <header>
-                <img id="logo" src="view/images/header/logo.jpg" alt="No Man’Z Lan Logo"/>
+                <a href="?page=forum"><img id="logo" src="view/images/header/logo.jpg" alt="No Man’Z Lan Logo"/></a>
                 <div id = "connexion" >
                     <form method="post" action="?page=<?php echo $MENU["currenPage"]; ?>&action=login" >
-                        <label>Utilisateur: </label>: 
+                        <label>Utilisateur </label>: 
                         <input type="text" id="utilisateur" name="utilisateur" size="30"/></br>
-                        <label>Mot de passe: </label>: 
+                        <label>Mot de passe </label>: 
                         <input type="text" id="motDePasse" name="motDePasse" size="30"/></br>
                         <input type="button" value="S'inscrire">
                         <input type="button" value="Connexion">
@@ -25,7 +25,7 @@
                     <ul>
                         <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum">Forum</a></li>
                         <li class="<?php echo ($MENU["evenement"] == true)? "selected":""; ?>"><a href="?page=evenement">Évènement</a></li>
-                        <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="#">Informations</a>
+                        <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="#" style="cursor:default;">Informations</a>
                             <ul>
                                 <li class="<?php echo ($MENU["coordonnee"] == true)? "selected":""; ?>"><a href="?page=coordonnee">Coordonnée</a></li>
                                 <li class="<?php echo ($MENU["equipe"] == true)? "selected":""; ?>"><a href="?page=equipe">Équipe</a></li>
@@ -38,5 +38,6 @@
                         <li class="<?php echo ($MENU["faq"] == true)? "selected":""; ?>"><a href="?page=faq">FAQ</a></li>
                     </ul>
                 </nav>
+                <div class="clear"></div>
            </header>
            <div class="content">

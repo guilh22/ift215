@@ -58,6 +58,10 @@
             $MENU["evenement"] = true;
             include 'view/evenement.php';
         break;
+        case "faq" :
+            $MENU["faq"] = true;
+            include 'view/faq.php';
+        break;
         case "coordonnee" :
             $MENU["coordonnee"] = true;
             include 'view/coordonnee.php';
