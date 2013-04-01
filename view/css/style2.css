@@ -28,18 +28,20 @@ nav ul{
 }
 nav ul li{
     list-style:none;
-    height:27px;
+    height:32px;
     background:red;
     float:left;
     position:relative;
-    padding:5px 10px 0 10px;
 }
 nav ul li:hover{
     background:#ddd;
 }
 nav ul li a{
-    width:120px;
+    display:inline-block;
+    height:27px;
     color:white;
+    text-align: center;
+    padding:5px 10px 0 10px;
     text-decoration: none;
 }
 nav ul li ul{
