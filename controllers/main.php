@@ -78,6 +78,10 @@
             $MENU["equipement"] = true;
             include 'view/equipement.php';
         break;
+        case "inscription" :
+            $MENU["inscription"] = true;
+            include 'view/inscription.php';
+        break;
         case "reglements" :
             $MENU["reglements"] = true;
             include 'view/reglements.php';
