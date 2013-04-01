@@ -5,6 +5,9 @@
     background:#ccc;
     padding-bottom:15px;
 }
+.content{
+    padding:0 15px;
+}
 nav{
    width:960px; 
    clear:both;
