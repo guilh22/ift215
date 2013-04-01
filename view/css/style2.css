@@ -3,6 +3,7 @@
     width:960px;
     margin:0 auto;
     background:#ccc;
+    padding-bottom:15px;
 }
 nav{
    width:960px; 
@@ -43,8 +44,19 @@ nav ul li:hover ul li{
    display:block;
    width:150px;
    float:none!important;
-   text-align: left;
+   text-align: center;
    height:20px;
+   background:red;
+   padding:10px 5px;
+}
+nav ul li:hover ul li:hover{
+   display:block;
+   width:150px;
+   float:none!important;
+   text-align: center;
+   height:20px;
+   background:#ddd;
+   padding:10px 5px;
 }
 
 h1{
