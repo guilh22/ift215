@@ -1,8 +1,7 @@
 <h1>FAQ</h1>
-<div class="accordeon1 accordeon">
+<div class="accordeon1 accordeon" onclick="accordeon('accordeon1');">
     <div class="nom">
-        Information
-        <img src="view/images/evenement/flecheExp.jpg" alt="flèche pointe vers le bas" onclick="accordeon('accordeon1');"/>
+        Comment s'inscrire a un Tournoi?
     </div>
     <div class="contenue">
         <p>
@@ -19,10 +18,9 @@
         </p>
     </div>
 </div>
-<div class="accordeon2 accordeon">
+<div class="accordeon2 accordeon" onclick="accordeon('accordeon2');">
     <div class="nom">
         Tournois
-        <img src="view/images/evenement/fleche.jpg" alt="flèche pointe vers la gauche" onclick="accordeon('accordeon2');"/>
     </div>
     <div class="contenue">
         <p>
@@ -39,10 +37,9 @@
         </p>
     </div>
 </div>
-<div class="accordeon3 accordeon">
+<div class="accordeon3 accordeon" onclick="accordeon('accordeon3');">
     <div class="nom">
         Horaire
-        <img src="view/images/evenement/fleche.jpg" alt="flèche pointe vers la gauche" onclick="accordeon('accordeon3');"/>
     </div>
     <div class="contenue">
         <p>
@@ -69,16 +66,19 @@
             });
             firstime = false;
             jQuery("."+className + " .contenue").slideToggle();
+            jQuery("."+className).toggleClass("expanded");
         }else{
             current = jQuery("."+className);
             jQuery(".accordeon").each(function(){
                 if(current != jQuery(this)) {
                     if(jQuery(this).find(".contenue").is(":visible")) {
-                        jQuery(this).find(".contenue").slideToggle("fast");
+                        jQuery(this).find(".contenue").slideToggle("slow");
+                        jQuery(this).toggleClass("expanded");
                     }
                 }
             });
             current.find(".contenue").slideToggle();
+            current.toggleClass("expanded");
         }
     }
     accordeon("accordeon1");

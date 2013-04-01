@@ -75,3 +75,10 @@ h1{
 }
 .forum tr td + td{
 }
+
+.accordeon .nom{
+    background:url(../images/evenement/fleche.png) center right no-repeat;
+}
+.accordeon.expanded .nom{
+    background:url(../images/evenement/flecheExp.png) center right no-repeat;
+}
