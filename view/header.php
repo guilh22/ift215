@@ -12,7 +12,7 @@
             <header>
                 <a href="?page=forum"><img id="logo" src="view/images/header/logo.jpg" alt="No Man’Z Lan Logo"/></a>
                 <div id = "connexion" >
-                    <form id="loginForm" method="post" action="?page=<?php echo $MENU["currenPage"]; ?>&action=login" >
+                    <form id="loginForm" method="post" action="?page=<?php echo $MENU['currentPage']; ?>&action=login">
                         <label>Utilisateur </label>: 
                         <input type="text" id="utilisateur" name="utilisateur" size="30"/></br>
                         <label>Mot de passe </label>: 
