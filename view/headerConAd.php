@@ -38,7 +38,7 @@
                         <li class="<?php echo ($MENU["faq"] == true)? "selected":""; ?>"><a href="?page=faq">FAQ</a></li>
                     </ul>
                     <ul>
-                        <li class="<?php echo ($MENU["gestionLan"] == true)? "selected":""; ?>"><a href="./view/gestionLan.php">Gestion LAN</a></li>   
+                        <li class="<?php echo ($MENU["gestionLan"] == true)? "selected":""; ?>"><a href="?page=gestionLan">Gestion LAN</a></li>   
                         <li class="<?php echo ($MENU["votreEspace"] == true)? "selected":""; ?>"><a href="?page=votreEspace">Votre espace</a></li>
                     </ul>
                 </nav>
