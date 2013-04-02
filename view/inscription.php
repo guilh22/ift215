@@ -9,7 +9,7 @@
         <label>Prenom *: </label>
         <input type="text" id="champPrenom" name="prenom" size="30" required/></br>
         <label>Email *: </label>
-        <input type="text" id="champPrenom" name="prenom" size="30" placeholder="toto@toto.ca" required/></br>
+        <input type="email" id="champPrenom" name="prenom" size="30" placeholder="toto@toto.ca" required/></br>
         <div class="nom">
             Information public
         </div>
@@ -35,7 +35,7 @@
         <div class="nom">
             Liste de jeux
         </div>
-        <label for="jeux">Clan</label>
+        <label for="jeux">Jeux: </label>
         <select name="jeux">
             <option value="lol">League of legends</option>
             <option value="battlefield">Battlefield</option>
@@ -43,6 +43,6 @@
             <option value="diablo3">Diablo 3</option>
         </select>
         </br>
-        <input type="button" value="Soumettre l'inscription">
+        <input type="submit" value="Soumettre l'inscription">
     </form>
 </div>

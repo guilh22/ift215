@@ -12,16 +12,18 @@
             <header>
                 <img id="logo" src="view/images/header/logo.jpg" alt="No Man’Z Lan Logo"/>
                 <div id = "connexion">
-                    <h2>Bonjour, <?php // add name of user here ?></h2>
-                    Prochain événement <br />
-                    No Man’Z Lan : OP Gamer’Z Style <br />
-                    <?php // add Date function here ?>
-                    <img id="inscrire" src="view/images/header/inscrire.jpg"/>
-                    <img id="Déconnexion" src="view/images/header/deconnexion.jpg"/>
+                    <form method="post" id="inscrireEvent" action="?page=<?php echo $MENU['currentPage']; ?>&action=logout">
+                        <h2>Bonjour, Admin</h2>
+                        Prochain événement <br />
+                        No Man’Z Lan : OP Gamer’Z Style <br />
+                        <?php // add Date function here ?>
+                        <input type="button" value="M'iscrire à l'évènement" onclick="jQuery('#inscrireEvent').attr('action','?page=inscriptionLan1');jQuery('#inscrireEvent').submit();"/>
+                        <input type="submit" value="Déconnexion">
+                    </form>
                 </div>
                 <nav>
                     <ul>
-                        <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum"></a>Forum</li>
+                        <li class="<?php echo ($MENU["forum"] == true)? "selected":""; ?>"><a href="?page=forum">Forum</a></li>
                         <li class="<?php echo ($MENU["evenement"] == true)? "selected":""; ?>"><a href="?page=evenement">Évènement</a></li>
                         <li class="<?php echo ($MENU["informations"] == true)? "selected":""; ?>"><a href="?page=informations">Informations</a>
                             <ul>
@@ -34,8 +36,11 @@
                         </li>
                         <li class="<?php echo ($MENU["calendrier"] == true)? "selected":""; ?>"><a href="?page=calendrier">Calendrier</a></li>
                         <li class="<?php echo ($MENU["faq"] == true)? "selected":""; ?>"><a href="?page=faq">FAQ</a></li>
-                        <li class="<?php echo ($MENU["gestionLan"] == true)? "selected":""; ?>"><a href="./view/gestionLan.php"></a>Gestion LAN</li>   
+                    </ul>
+                    <ul>
+                        <li class="<?php echo ($MENU["gestionLan"] == true)? "selected":""; ?>"><a href="./view/gestionLan.php">Gestion LAN</a></li>   
                         <li class="<?php echo ($MENU["votreEspace"] == true)? "selected":""; ?>"><a href="?page=votreEspace">Votre espace</a></li>
                     </ul>
                 </nav>
            </header>
+           <div class="content">

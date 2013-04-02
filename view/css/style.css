@@ -42,9 +42,6 @@
     width: 930px;
     height: 210px;
 }
-/*.contenue{
-    padding: 15px;
-}*/
 .contenue strong{
     
 }
@@ -60,4 +57,33 @@
 }
 .clear{
     clear: both;
+}
+#test{
+    margin-top: 15px;
+    background: red;
+    height: 32px;
+    margin-bottom:0;
+}
+#condition{
+    border: black;
+    border-radius: 1px;
+}
+#inscriptionLan1
+{
+    background:url(../images/inscriptionLan/jauge1.png) center middle no-repeat;
+}
+#inscriptionLan2
+{
+    background:url(../images/inscriptionLan/jauge2.png) center middle no-repeat;
+}
+#prix table{
+    border:black;
+    border-radius:1px;
+}
+#prix table tr{
+    border:black;
+    border-radius:1px;
+}
+#prix table tr{
+    
 }
