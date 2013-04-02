@@ -13,15 +13,15 @@
 class Cookie {
     public static $instance = NULL;
     private $myCookie;
-    public function __construct() {
+    public function __construct() {        
         if(isset(self::$instance)){
             return self::$instance;
         }
         self::$instance = $this;
-        if(isset($_COOKIE["ift215"])){
-            $this->myCookie = $_COOKIE["ift215"];
+        if(isset($_COOKIE["ift215"])){ 
+            self::$instance->myCookie = unserialize( str_replace("\\","",$_COOKIE["ift215"]));  
         }else{
-            $this->myCookie = array(
+            self::$instance->myCookie = array(
                 "isAdmin" => false, 
                 "isConnected" => false, 
                 "forum" => array(
@@ -61,7 +61,11 @@ class Cookie {
                     )
                 )
             );
+            $tmp = serialize(self::$instance->myCookie);
+            setcookie("ift215", $tmp, time()+3600*24*30);
+            
         }
+                
         return self::$instance;
     }
     public function getInstance() {
@@ -73,20 +77,23 @@ class Cookie {
     }
     public function setCookieAttr($key = "", $val = "", $arr = array()){
         if(count($arr) > 0){
-            setcookie("ift215", $arr, time()+3600*24*30);
+            $tmp = serialize($arr);
+            setcookie("ift215", $tmp, time()+3600*24*30);
         }else if($key != ""){
             $this->myCookie[$key] = $val;
+            $this->setCookie($this->myCookie);
         }
     }
     public function setCookie($theCookie){
-        setcookie("ift215", $theCookie, time()+3600*24*30);
+        $tmp = serialize($theCookie);
+        setcookie("ift215", $tmp, time()+3600*24*30);
     }
     
     public function getCookieVal($key = ""){
         if($key == ""){
-            return $this->myCookie;
-        }else if(isset($this->myCookie[$key])){
-            return $this->myCookie[$key];
+            return self::$instance->myCookie;
+        }else if(isset(self::$instance->myCookie[$key])){
+            return self::$instance->myCookie[$key];
         }else{
             return false;
         }

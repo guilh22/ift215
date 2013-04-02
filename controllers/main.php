@@ -11,7 +11,12 @@
     
     switch($action){
         case "login" :
-            $USER->connexion($_REQUEST["user"],$_REQUEST["pass"]);
+            $USER->connexion($_REQUEST["utilisateur"],$_REQUEST["motDePasse"]);
+        break;
+        case "confirmation" :
+            if($_REQUEST["page"] == "inscription"){
+                //envoie du forulaire
+            }
         break;
         case "logout" :
             $USER->deconnexion();
@@ -27,6 +32,8 @@
         break;
     }
     
+    $MENU = array();
+    $MENU["currentPage"] = $page;
     if($USER->isConnected() && $USER->isAdmin()){
         include 'view/headerConAd.php';
     }else if($USER->isConnected()){
@@ -35,24 +42,21 @@
         include "view/header.php";
     }
     
-    $MENU = array();
-    $MENU["currentPage"] = $page;
+    
     switch($page){
         case "forum" :
             $MENU["forum"] = true;
-            if($_REQUEST["subject"] != null){
-                include 'view/accueil.php';
+            if(isset($_REQUEST["sujet"]) && $_REQUEST["sujet"] != null){
+                $sujet = str_replace("_"," ",$_REQUEST["sujet"]);
+                
+                if(isset($_REQUEST["discussion"]) && $_REQUEST["discussion"] != null){
+                    include 'view/forum_lvl2.php';
+                }else{
+                    include 'view/forum_lvl1.php';
+                }
             }else{
                 include 'view/accueil.php';
             }            
-        break;
-        case "forumGenSujet" :
-            $MENU["accueil"] = true;
-            include 'view/accueil.php';
-        break;
-        case "forumGenSujetPost" :
-            $MENU["accueil"] = true;
-            include 'view/accueil.php';
         break;
         case "evenement" :
             $MENU["evenement"] = true;
@@ -80,7 +84,23 @@
         break;
         case "inscription" :
             $MENU["inscription"] = true;
-            include 'view/inscription.php';
+            if($_REQUEST["action"] == "confirmation"){
+                include 'view/confirmation.php';
+            }else{
+                include 'view/inscription.php';
+            }
+        break;
+        case "inscriptionLan1" :
+            $MENU["inscription"] = true;
+            include 'view/inscriptionLan1.php';
+        break;
+        case "inscriptionLan2" :
+            $MENU["inscription"] = true;
+            include 'view/inscriptionLan2.php';
+        break;
+        case "inscriptionLan3" :
+            $MENU["inscription"] = true;
+            include 'view/inscriptionLan3.php';
         break;
         case "reglements" :
             $MENU["reglements"] = true;
