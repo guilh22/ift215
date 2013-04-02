@@ -21,13 +21,15 @@ nav{
 }
 nav ul{
     display:block;
-    width:960px;
+    width:610px;
     height:27px;
     padding:0;
+    margin:0;
+    float:left;
 }
 nav ul + ul{
     float:right;
-    width:350px;
+    width:225px;
 }
 nav ul li{
     list-style:none;

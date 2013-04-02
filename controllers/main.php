@@ -20,8 +20,9 @@
         break;
         case "logout" :
             $USER->deconnexion();
-            $url = "";
-            foreach($_GET as $key => $val){ if($key != "action"){$url .= $key."=".$val; }}
+            $url = "?";
+            $counter = 1;
+            foreach($_GET as $key => $val){ if($key != "action"){$url .= ($counter == 1? $key."=".$val : "&".$key."=".$val); }}
             header("location:".$url);
         break;
         
