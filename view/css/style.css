@@ -65,25 +65,15 @@
     margin-bottom:0;
 }
 #condition{
-    border: black;
-    border-radius: 1px;
+    border:1px solid black;
+    overflow:auto;
+    height:150px;
 }
 #inscriptionLan1
 {
-    background:url(../images/inscriptionLan/jauge1.png) center middle no-repeat;
+    background:url(../images/inscriptionLan/jauge1.png) center center no-repeat;
 }
 #inscriptionLan2
 {
-    background:url(../images/inscriptionLan/jauge2.png) center middle no-repeat;
-}
-#prix table{
-    border:black;
-    border-radius:1px;
-}
-#prix table tr{
-    border:black;
-    border-radius:1px;
-}
-#prix table tr{
-    
+    background:url(../images/inscriptionLan/jauge2.png) center center no-repeat;
 }

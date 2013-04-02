@@ -12,12 +12,14 @@
             <header>
                 <img id="logo" src="view/images/header/logo.jpg" alt="No Man’Z Lan Logo"/>
                 <div id = "connexion">
-                    <h2>Bonjour, Joueur</h2>
-                    Prochain événement <br />
-                    No Man’Z Lan : OP Gamer’Z Style <br />
-                    <?php // add Date function here ?>
-                    <input type="button" value="M'iscrire à l'évènement" onclick="jQuery('#inscrireEvent').attr('action','?page=inscriptionLan1');jQuery('#inscrireEvent').submit();"/>
-                    <input type="submit" value="Déconnexion">
+                    <form method="post" id="inscrireEvent" action="?page=<?php echo $MENU['currentPage']; ?>&action=logout">
+                        <h2>Bonjour, Joueur</h2>
+                        Prochain événement <br />
+                        No Man’Z Lan : OP Gamer’Z Style <br />
+                        <?php // add Date function here ?>
+                        <input type="button" value="M'iscrire à l'évènement" onclick="jQuery('#inscrireEvent').attr('action','?page=inscriptionLan1');jQuery('#inscrireEvent').submit();"/>
+                        <input type="submit" value="Déconnexion">
+                    </form>
                 </div>
                 <nav>
                     <ul>

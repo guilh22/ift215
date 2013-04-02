@@ -5,7 +5,7 @@
 <div id="prix">
     <strong>Prix: </strong> 25$</br>
     <form method="post" action="?page=inscriptionLan3&action=login">
-        <table>
+        <table border="1" cellpadding="0" cellspacing="0">
            <tr>
                <td><input type="radio" value="none" name="paiement" checked/><label>Paiement sur place</label></td>
                <td><input type="radio" value="paypal" name="paiement"/><label>Paiement PayPal</label></td>

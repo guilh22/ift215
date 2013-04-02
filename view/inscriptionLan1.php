@@ -3,7 +3,7 @@
     Étape 1
 </div>
 Règlement</br>
-<p id="condition">
+<div id="condition">
     Lorem ipsum dolor sit amet, 
     consectetur adipiscing elit. Duis hendrerit pretium cursus. 
     Donec mollis nisi ut odio gravida bibendum. Sed iaculis nulla nec 
@@ -20,9 +20,9 @@ Règlement</br>
     cursus. Donec mollis nisi ut odio gravida bibendum. Sed iaculis nulla nec libero
     semper placerat. Etiam nec erat arcu, quis tempor lacus. Sed lacus diam, lacinia
     et vulputate et, suscipit eu lectus. Mauris quis dolor a nulla
-</p>
+</div>
 <form method="post" action="?page=inscriptionLan2&action=login">
-    <input type="checkbox" value="accept" required/>
+    <input type="checkbox" value="accept" required onclick="if(jQuery('.submitInscription').attr('disabled') == 'disabled'){jQuery('.submitInscription').removeAttr('disabled')}else{jQuery('.submitInscription').attr('disabled','disbaled')}"/>
     <label>J'accepte les règlements</label></br>
-    <input type="submit" value="Confirmer mon inscription au LAN"/>
+    <input type="submit" value="Confirmer mon inscription au LAN" class="submitInscription" disabled="disabled"/>
 </form>
