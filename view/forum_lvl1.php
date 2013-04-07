@@ -2,43 +2,75 @@
 $data = array(
     "Les LANs" => array(
             "Le trop mega cool lan party" => array(
-                "Administrateur" => array(
+                "auteur" => "Administrateur",
+                "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                "content" => array(
                     "userPostID" => 1,
                     "comment" => "Voila le trop mega cool lan party est prévue pour le 25 Mai 2013, les inscriptions sont ouvertes!",
                     "nbReply" => 1,
                     "reply" => array(
-                        "AnonymeUser1" => array(
-                            "userPostID" => 2,
-                            "comment" => "J'ai fais un test d'inscription et sa ne semble pas fonctionner y a-t-il un problème avec le site?",
+                        array(
+                            "auteur" => "Joueur",
+                            "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                            "content" => array(
+                                "userPostID" => 2,
+                                "comment" => "Je n'arrive pas a m'inscrire au lan, est-ce normal?",
+                                "nbReply" => 1,
+                                "reply" => array(
+                                    array(
+                                        "auteur" => "Administrateur",
+                                        "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                                        "content" => array(
+                                            "userPostID" => 3,
+                                            "comment" => "Je vais voir si je peux t'aider avec ton probleme.",
+                                            "nbReply" => 0,
+                                            "reply" => array(
+                                                array(
+
+                                                )//fin array in reply
+                                            )//fin reply
+                                        ), //fin content
+                                        "consultation" => 22,
+                                        "date" => "13-02-2013",
+                                        "close" => "false"
+                                    )//fin array in reply
+                                )//fin reply
+                            ), //fin content
+                            "consultation" => 22,
                             "date" => "13-02-2013",
-                            "nbReply" => 1,
-                            "reply" => array("Administrateur" => "c'est vraiment étrange tous sa :( <br/>je te revien la dessus dès que possible.")
-                        )
-                    )
-                ),
-                "nbPost" => 2,
+                            "close" => "false"
+                        )//fin array in reply
+                    )//fin reply
+                ), //fin content
                 "consultation" => 22,
-                "date" => "13-02-2013"
-            )
+                "nbPost" => 3,
+                "date" => "13-02-2013",
+                "close" => "false"
+            )//fin du lan
         ),
         "Jeux PC" => array(
             "Counter strike" => array(
                 "auteur" => "AnonymeUser1",
+                "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
                 "content" => array(
                     "userPostID" => 1,
                     "comment" => "Wow le nouveau counter strike est sortie sur Steam j ai trop hate d'y jouer",
                     "nbReply" => 0,
-                    "reply" => array()
-                ),
+                    "reply" => array(
+                        array(
+                            
+                        )//fin array in reply
+                    )//fin reply
+                ), //fin content
+                "consultation" => 22,
                 "nbPost" => 1,
-                "consultation" => 1045,
                 "date" => "13-02-2013",
-                "close" => false
+                "close" => "false"
             )
         )
 );
 ?>
-<h1><a class="return" href="?page=forum"></a> Forum : Jeux PC</h1>
+<h1><a class="return" href="?page=forum"></a> <a href="?page=forum">Forum</a> : <?php echo $sujet; ?></h1>
 <div class="search accordeon">
     <form>
         <div><input type="text" value=""/><input type="submit" value="Rechercher"/>
@@ -68,7 +100,7 @@ $data = array(
     ?>
     <tr class="<?php echo ($c == 1)? "turn":""; $c = ($c == 1)? 0:1; ?>">
         <td class="status"><div class="<?php 
-        if($v["close"]){ // si le sujet est clos
+        if($v["close"] == "true"){ // si le sujet est clos
             echo "closed";        
         }elseif($data["user"][$sujet][$k] >= $v["date"]){ //si l'usager a lu tout les post du sujet
             echo "uptodate";

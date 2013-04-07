@@ -186,6 +186,10 @@ h1{
     width:100px;
     padding:10px;
 }
+.forum3 tr th div.auteur,.forum3 tr th div.date{
+    text-align: center;
+    float:none;
+}
 .forum3 tr th img{
     width:100px;
     height:100px;
@@ -195,6 +199,14 @@ h1{
 }
 .forum3 tr td{
     padding:10px;
+    text-align: center;
+}
+.forum3 tr td + td{
+    text-align: justify;
+}
+.forum3 tr td div.auteur,.forum3 tr td div.date{
+    text-align: center;
+    float:none;
 }
 .forum3 tr td img{
     width:100px;
