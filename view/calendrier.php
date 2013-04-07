@@ -4,7 +4,7 @@
         No Man'Z Lan: OP Gamer'Z Style
         <div class="date">22-03-2013</div>
     </div>
-    <img src="view/images/affiche/affiche1.jpg">
+    <img src="view/images/evenement/affiche1.png">
     <div class="description">
         <strong>Lieu : </strong>
         Cafétéria du Cégep de Granby Haute-Yamaska
@@ -27,7 +27,7 @@
         No Man'Z Lan: 8-Bit Madness
         <div class="date">09-11-2012</div>
     </div>
-    <img src="view/images/affiche/affiche1.jpg">
+    <img src="view/images/evenement/affiche2.png">
     <div class="description">
         <strong>Lieu : </strong>
         Cafétéria du Cégep de Granby Haute-Yamaska

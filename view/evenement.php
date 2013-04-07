@@ -1,6 +1,6 @@
 
 <h1>Évènement</h1>
-<img id="affiche_evenement" src="view/images/evenement/affiche.jpg" alt="Affiche de l'évènement"/>
+<img id="affiche_evenement" src="view/images/evenement/affiche.png" alt="Affiche de l'évènement"/>
 <p id="titre_evenement">
     No Man'Z Lan : <br />
     OP Gamer'Z <br />
@@ -31,13 +31,13 @@
     <div class="nom">
         Tournois
     </div>
-    <div class="contenue"></div>
+    <div class="contenue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id neque magna, vel pharetra dui. Duis risus justo, semper et sodales non, malesuada eget magna. Nullam euismod lorem quis mi pulvinar vestibulum. Nunc placerat orci quam. Duis malesuada tristique purus, nec malesuada sem tincidunt vitae. Morbi varius diam ac sapien ornare ullamcorper. Nam suscipit sapien in purus ornare id lobortis eros vulputate. Pellentesque feugiat auctor feugiat. Morbi cursus velit lacus. In tristique quam ac ligula adipiscing hendrerit. Donec suscipit placerat sem, ac mollis tortor mollis vel. Nam sodales risus eu ante iaculis sit amet dapibus turpis dignissim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
 </div>
 <div class="accordeon3 accordeon" onclick="accordeon('accordeon3');"> 
     <div class="nom">
         Horaire
     </div>
-    <div class="contenue"></div>
+    <div class="contenue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu lorem vel nisl vulputate lobortis. Sed in nisl lacus. Duis interdum rutrum diam, eu facilisis dui imperdiet vitae. Nullam vulputate mi eu nibh fringilla at elementum lectus cursus. Aenean ornare lacus tincidunt lorem tempus rhoncus. Quisque ac ligula nunc. Vestibulum ultricies, magna nec egestas ultricies, eros nibh tincidunt ante, ut vulputate leo nulla sit amet lacus. Donec ipsum tellus, sagittis vel mollis vel, cursus vel justo. Aliquam erat volutpat. Nam lobortis mollis dui, eget laoreet sem consequat ac.</div>
 </div>
 
 <script type="text/javascript">

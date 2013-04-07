@@ -27,12 +27,12 @@
     float: left;
     width: 95px;
     height: 115px;
+    margin-right:10px;
 }
 .personne{
     margin-top: 40px;
 }
 .personne img{
-    float: left;
     width: 95px;
     height: 90px;
 }
@@ -44,8 +44,9 @@
 }
 #affiche_evenement{
     float: left;
-    width: 115px;
-    height: 130px;
+    width: 95px;
+    height: 115px;
+    margin-right:10px;
 }
 #titre_evenement{
     display: inline-block;
@@ -65,4 +66,13 @@
     border:1px solid black;
     overflow:auto;
     height:150px;
+    text-align: justify;
+}
+.descPhoto{
+    text-align:center;
+    width:100px;
+    float:left;
+}
+.descPhoto span{
+    display: block;
 }
