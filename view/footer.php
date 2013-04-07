@@ -1,3 +1,4 @@
+    <div class="clear"></div>
     </div><!-- fin content -->
     <footer>
         <div id="test">

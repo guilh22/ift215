@@ -52,6 +52,9 @@ header{
     background:url(../images/header/headerBg.jpg) 0 0 no-repeat;
     height:238px;
 }
+footer{
+    margin-top:15px;
+}
 .content{
     padding:0 15px;
     position:relative;
@@ -217,4 +220,7 @@ table tr.turn td{
 }
 table tr td{
     background:#353535;
+}
+table tr td + td{
+    text-align: center;
 }
