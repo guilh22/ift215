@@ -14,6 +14,7 @@
     border:none;
     margin-bottom:15px;
     margin-top:15px;
+    clear:both;
 }
 .nom.step1{
     background:url(../images/general/classNomStep1.jpg) 0 0 no-repeat;
@@ -38,6 +39,9 @@ body{
 }
 a{
     color:white;
+}
+p{
+    text-align: justify;
 }
 .wrapper { 
     display: block;
@@ -173,6 +177,33 @@ h1{
     border-right:none;
 }
 
+
+.forum3{
+    width:100%;
+    margin:10px auto 0;
+}
+.forum3 tr th{
+    width:100px;
+    padding:10px;
+}
+.forum3 tr th img{
+    width:100px;
+    height:100px;
+}
+.forum3 tr th + th{
+    width:100%;
+}
+.forum3 tr td{
+    padding:10px;
+}
+.forum3 tr td img{
+    width:100px;
+    height:100px;
+}
+
+
+
+
 .search{
     border:1px solid black;
 }
@@ -223,4 +254,7 @@ table tr td{
 }
 table tr td + td{
     text-align: center;
+}
+.clear{
+    clear:both;
 }

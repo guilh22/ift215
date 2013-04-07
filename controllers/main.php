@@ -48,9 +48,9 @@
         case "forum" :
             $MENU["forum"] = true;
             if(isset($_REQUEST["sujet"]) && $_REQUEST["sujet"] != null){
-                $sujet = str_replace("_"," ",$_REQUEST["sujet"]);
-                
+                $sujet = str_replace("_"," ",$_REQUEST["sujet"]);                
                 if(isset($_REQUEST["discussion"]) && $_REQUEST["discussion"] != null){
+                    $discussion = str_replace("_"," ",$_REQUEST["discussion"]);
                     include 'view/forum_lvl2.php';
                 }else{
                     include 'view/forum_lvl1.php';

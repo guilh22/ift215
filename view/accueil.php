@@ -1,6 +1,6 @@
 <?php 
 $data = array(
-    "Les LAN" => array(
+    "Les LANs" => array(
         "Le trop mega cool lan party" => array(
             "Administrateur" => array(
                 "userPostID" => 1,

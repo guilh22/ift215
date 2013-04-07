@@ -1,6 +1,6 @@
 <?
 $data = array(
-    "Les LAN" => array(
+    "Les LANs" => array(
             "Le trop mega cool lan party" => array(
                 "Administrateur" => array(
                     "userPostID" => 1,
@@ -38,7 +38,7 @@ $data = array(
         )
 );
 ?>
-<h1><a class="return" href="?page=forum&sujet=<?php echo $sujet; ?>"></a> Forum : Jeux PC</h1>
+<h1><a class="return" href="?page=forum"></a> Forum : Jeux PC</h1>
 <div class="search accordeon">
     <form>
         <div><input type="text" value=""/><input type="submit" value="Rechercher"/>
