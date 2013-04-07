@@ -31,11 +31,13 @@
     <div class="nom">
         Tournois
     </div>
+    <div class="contenue"></div>
 </div>
 <div class="accordeon3 accordeon" onclick="accordeon('accordeon3');"> 
-<div class="nom">
-    Horaire
-</div>
+    <div class="nom">
+        Horaire
+    </div>
+    <div class="contenue"></div>
 </div>
 
 <script type="text/javascript">
@@ -43,10 +45,10 @@
     function accordeon(className){
         if(firstime){
             jQuery(".accordeon").each(function(){
-                jQuery(".contenue",this).hide("fast");                
+                jQuery(".contenue",this).hide();                
             });
             firstime = false;
-            jQuery("."+className + " .contenue").slideToggle();
+            jQuery("."+className + " .contenue").show();
             jQuery("."+className).toggleClass("expanded");
         }else{
             current = jQuery("."+className);

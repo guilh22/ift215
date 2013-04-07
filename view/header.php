@@ -10,7 +10,7 @@
     <body>
         <div class="wrapper"> <?php // end in footer.php ?>
             <header>
-                <a href="?page=forum"><img id="logo" src="view/images/header/logo.jpg" alt="No Man’Z Lan Logo"/></a>
+                <a href="?page=forum"><img id="logo" src="view/images/header/logo.png" alt="No Man’Z Lan Logo"/></a>
                 <div id = "connexion" >
                     <form id="loginForm" method="post" action="?page=<?php echo $MENU['currentPage']; ?>&action=login">
                         <label>Utilisateur </label>: 

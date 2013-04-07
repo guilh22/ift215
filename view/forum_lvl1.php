@@ -63,9 +63,10 @@ $data = array(
         <th nowrap>Mise à jour</th>
     </tr>
     <?php 
+        $c = 0;
         foreach($data[$sujet] as $k => $v){
     ?>
-    <tr>
+    <tr class="<?php echo ($c == 1)? "turn":""; $c = ($c == 1)? 0:1; ?>">
         <td class="status"><div class="<?php 
         if($v["close"]){ // si le sujet est clos
             echo "closed";        
@@ -75,7 +76,7 @@ $data = array(
             echo "needRead";
         } ?>"></div>
         </td>
-        <td class="subject"><a href="?page=forum&sujet=<?php echo $sujet; ?>&discussion=<?php echo $k; ?>"><?php echo $k;?></a></td>
+        <td class="subject"><a href="?page=forum&sujet=<?php echo str_replace(" ","_",$sujet); ?>&discussion=<?php echo str_replace(" ","_",$k); ?>"><?php echo $k;?></a></td>
         <td><?php echo $v["auteur"];?></td>
         <td><?php echo $v["nbPost"];?></td>
         <td><?php echo $v["consultation"];?></td>

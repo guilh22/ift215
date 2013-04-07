@@ -1,13 +1,56 @@
+#logo{
+    width:324px;
+    height:192px;
+    margin-left:10px;
+    margin-top:5px;
+}
+.nom{
+    background:url(../images/general/classNomBg.jpg) 0 0 no-repeat;
+    width:914px;
+    height:22px;
+    padding:9px 10px 5px;
+    font-weight:bold;
+    font-size:16px;
+    border:none;
+    margin-bottom:15px;
+    margin-top:15px;
+}
+.nom.step1{
+    background:url(../images/general/classNomStep1.jpg) 0 0 no-repeat;
+}
+.nom.step2{
+    background:url(../images/general/classNomStep2.jpg) 0 0 no-repeat;
+}
+.nom.step3{
+    background:url(../images/general/classNomStep3.jpg) 0 0 no-repeat;
+}
+.accordeon .nom{
+    background:url(../images/general/classNomBgAccorClose.jpg) 0 0 no-repeat;
+}
+.accordeon.expanded .nom{
+    background:url(../images/general/classNomBgAccorOpen.jpg) 0 0 no-repeat;
+}
+body{
+    background:#4e4e4e;
+    color:white;
+    padding:0;
+    margin:0;
+}
+a{
+    color:white;
+}
 .wrapper { 
     display: block;
     width:960px;
     margin:0 auto;
-    background:#ccc;
+    background:#343434;
     font-family: Arial;
 }
 header{
     position:relative;
     z-index: 2;
+    background:url(../images/header/headerBg.jpg) 0 0 no-repeat;
+    height:238px;
 }
 .content{
     padding:0 15px;
@@ -16,8 +59,11 @@ header{
 }
 nav{
     clear:both;
-    background:red;
+    background:#d30000;
     height:32px;
+    position:absolute;
+    top:205px;
+    width:960px;
 }
 nav ul{
     display:block;
@@ -31,15 +77,19 @@ nav ul + ul{
     float:right;
     width:225px;
 }
+nav ul + ul.userDoc{
+    float:right;
+    width:125px;
+}
 nav ul li{
     list-style:none;
     height:32px;
-    background:red;
+    background:#d30000;
     float:left;
     position:relative;
 }
 nav ul li:hover{
-    background:#ddd;
+    background:#ad0c0c;
 }
 nav ul li a{
     display:inline-block;
@@ -105,9 +155,7 @@ h1{
     padding:10px;
     text-align: center;
 }
-.forum2 tr td a{
-    color:black;
-}
+
 .forum2 tr td + td{
 }
 .forum2 tr td.legend{
@@ -151,9 +199,22 @@ h1{
     margin:5px 0;
 }
 .accordeon .nom{
-    background:url(../images/evenement/fleche.png) center right no-repeat;
     cursor:pointer;
 }
-.accordeon.expanded .nom{
-    background:url(../images/evenement/flecheExp.png) center right no-repeat;
+
+
+#test{
+    color:white;
+    text-align: center;
+    line-height: 30px;
+}
+
+table th{
+    background:#1d1d1d;
+}
+table tr.turn td{
+    background:#232323;
+}
+table tr td{
+    background:#353535;
 }

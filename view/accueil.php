@@ -55,9 +55,10 @@ $data = array(
         <th>Nombre de discussion</th>
     </tr>
     <?
+        $c = 0;
         foreach($data as $k => $v){
         ?>
-    <tr>
+    <tr class="<?php echo ($c == 1)? "turn":"";$c = ($c == 1)? 0:1; ?>">
         <td><a href="?page=forum&sujet=<?php echo str_replace(" ","_",$k); ?>"><?php echo $k;?></a></td>
         <td><?php echo count($v);?></td>
     </tr>
