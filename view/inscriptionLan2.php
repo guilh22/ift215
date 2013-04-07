@@ -1,14 +1,14 @@
 <h1>Inscription au Lan</h1>
-<div class="nom" id="inscriptionLan2">
+<div class="nom step2" id="inscriptionLan2">
     Étape 2
 </div>
 <div id="prix">
     <strong>Prix: </strong> 25$</br>
-    <form method="post" action="?page=inscriptionLan3&action=login">
+    <form method="post" action="?page=inscriptionLan3&action=login" class="choix">
         <table border="1" cellpadding="0" cellspacing="0">
            <tr>
-               <td><input type="radio" value="none" name="paiement" class="none" checked /><label>Paiement sur place</label></td>
-               <td><input type="radio" value="paypal" name="paiement" class="paypal"/><label>Paiement PayPal</label></td>
+               <td><input type="radio" value="none" name="paiement" class="paiementComptant" checked onclick="jQuery('.suivant').attr('value','Terminer')"/><label>Paiement sur place</label></td>
+               <td><input type="radio" value="paypal" name="paiement" class="paypal" onclick="jQuery('.suivant').attr('value','Continuer')"/><label>Paiement PayPal</label></td>
            </tr>
            <tr>
                <td>
@@ -24,6 +24,6 @@
                </td>
            </tr>
        </table>
-        <input type="button" class="suivant" onclick="if(jQuery('.none').attr('checked') == 'enable'){jQuery('.suivant').addAttr('action=?page=confirmation')}else{jQuery('.suivant').addAttr('action=?page=paiementPaypal')}"/>
+        <input type="submit" class="suivant" onclick="if(jQuery('.paiementComptant').is(':checked')){jQuery('.choix').attr('action','?page=confirmationEvent')}else{jQuery('.choix').attr('action','?page=inscriptionLan3')}"/>
     </form>
 </div>

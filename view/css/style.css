@@ -1,7 +1,5 @@
 #logo{
     display: inline-block;
-    width: 596px;
-    height: 148px;
     float: left;
 }
 #connexion{
@@ -68,12 +66,4 @@
     border:1px solid black;
     overflow:auto;
     height:150px;
-}
-#inscriptionLan1
-{
-    background:url(../images/inscriptionLan/jauge1.png) center center no-repeat;
-}
-#inscriptionLan2
-{
-    background:url(../images/inscriptionLan/jauge2.png) center center no-repeat;
 }

@@ -103,6 +103,10 @@
             $MENU["inscription"] = true;
             include 'view/inscriptionLan3.php';
         break;
+        case "confirmationEvent" :
+            $MENU["inscription"] = true;
+            include 'view/confirmationEvenement.php';
+        break;
         case "reglements" :
             $MENU["reglements"] = true;
             include 'view/reglements.php';

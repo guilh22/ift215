@@ -1,5 +1,5 @@
 <h1>Inscription au Lan</h1>
-<div class="nom" id="inscriptionLan1">
+<div class="nom step1" id="inscriptionLan1">
     Étape 1
 </div>
 Règlement</br>
