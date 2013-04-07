@@ -4,18 +4,18 @@
         <div class="nom">
         Information personnelle
         </div>
-        <label>Nom *: </label>
+        <label>Nom * : </label>
         <input type="text" id="champNom" name="nom" size="30" required/>
-        <label>Prenom *: </label>
+        <label>Prenom * : </label>
         <input type="text" id="champPrenom" name="prenom" size="30" required/></br>
-        <label>Email *: </label>
+        <label>Email * : </label>
         <input type="email" id="champPrenom" name="prenom" size="30" placeholder="toto@toto.ca" required/></br>
         <div class="nom">
             Information public
         </div>
-        <label>Surnom *: </label>
+        <label>Surnom * : </label>
         <input type="text" id="champSurnom" name="surnom" size="30" required/></br>
-        <label>Avatar: </label>
+        <label>Avatar : </label>
         <input type="file" id="avatar" name="avatar"/></br>
         <div class="nom">
             Clan
@@ -30,12 +30,12 @@
             <option value="A horse jumping an edge">A horse jumping an edge</option>
             <option value="Scatophile">Scatophile</option>
         </select>
-        <label>Nom: </label>
+        <label>Nom : </label>
         <input type="text" id="nomClan" name="nomClan" disabled/></br>
         <div class="nom">
             Liste de jeux
         </div>
-        <label for="jeux">Jeux: </label>
+        <label for="jeux">Jeux : </label>
         <select name="jeux">
             <option value="lol">League of legends</option>
             <option value="battlefield">Battlefield</option>
