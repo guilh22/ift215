@@ -18,8 +18,30 @@
     ?>
 </table>
 <div id="posting">
-    
+    <input type="hidden" name="sujet" value=""/>
+    <input type="hidden" name="discussion" value=""/>
+    <div>
+        <label for="idPost">Répondre a : </label>
+        <select id="idPost" name="idPost">
+            <?php getAllPostAuteur($data[$sujet][$discussion]); ?>
+        </select>
+    </div>
+    <div>
+        <textarea id="reply" name="reply" onkeyup="calc();"></textarea>
+    </div>
+    <div>
+        <span class="legend">Il vous reste <span>300</span> caractère(s)</span>
+    </div>
 </div>
+<script type="text/javascript">
+    function calc(){
+        var nb = 300 - jQuery("#reply").val().length;
+        if(nb < 0){
+            alert("Vous avez dépasser le nombre de caractères permis.");
+        }
+        jQuery(".legend span").text(nb);
+    }
+</script>
 
 <?php 
     function makePost($post){
@@ -35,6 +57,16 @@
                 if($p["content"]["nbReply"] > 0){
                     makePost($p["content"]["reply"]);
                 }
+            }
+        }
+    }
+    
+    function getAllPostAuteur($p,$lvl=1){
+        if($p["close"] == "false"){
+            echo '<option value="'.$p["content"]["userPostID"].'">'.($lvl == 1? "Auteur" : $p["auteur"]).'</option>';
+            ++$lvl;
+            foreach($p["content"]["reply"] as $po){
+               getAllPostAuteur($po,$lvl);
             }
         }
     }

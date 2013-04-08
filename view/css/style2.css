@@ -270,3 +270,20 @@ table tr td + td{
 .clear{
     clear:both;
 }
+
+#posting{
+    padding:15px 5px;
+    background:#1d1d1d;
+    border:1px solid white;
+    margin:30px 0;
+}
+#posting textarea{
+    margin-top:10px;
+    width:98%;
+    height:150px;
+}
+#posting .legend{
+    float:right;
+    margin-right:15px;
+    font-size:9px;
+}
