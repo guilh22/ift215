@@ -20,18 +20,19 @@
         <div class="nom">
             Clan
         </div>
-        <input type="radio" id="existant" value="Existant" name="existe" checked/>
+        <input type="radio" id="existant" value="Existant" name="existe" checked onclick="jQuery('.selectClan').removeAttr('disabled');jQuery('.nomClan').attr('disabled','disabled');jQuery('.nomClan').val('');"/>
         <label>Existant</label>
-        <input type="radio" id="existant" value="Creation" name="existe"/>
+        <input type="radio" id="existant" value="Creation" name="existe" onclick="jQuery('.nomClan').removeAttr('disabled');jQuery('.selectClan').attr('disabled','disabled');"/>
         <label>Création</label></br>
         <label for="clan">Clan</label>
-        <select name="clan">
+        <select name="clan" class="selectClan">
+            <option value="No use for a name"></option>
             <option value="No use for a name">No use for a name</option>
             <option value="A horse jumping an edge">A horse jumping an edge</option>
             <option value="Scatophile">Scatophile</option>
         </select>
         <label>Nom : </label>
-        <input type="text" id="nomClan" name="nomClan" disabled/></br>
+        <input type="text" id="nomClan" class="nomClan" name="nomClan" disabled/></br>
         <div class="nom">
             Liste de jeux
         </div>

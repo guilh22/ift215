@@ -24,6 +24,6 @@
                </td>
            </tr>
        </table>
-        <input type="submit" class="suivant" onclick="if(jQuery('.paiementComptant').is(':checked')){jQuery('.choix').attr('action','?page=confirmationEvent')}else{jQuery('.choix').attr('action','?page=inscriptionLan3')}"/>
+        <input type="submit" value="Terminer" class="suivant" onclick="if(jQuery('.paiementComptant').is(':checked')){jQuery('.choix').attr('action','?page=confirmationEvent')}else{jQuery('.choix').attr('action','?page=inscriptionLan3')}"/>
     </form>
 </div>
