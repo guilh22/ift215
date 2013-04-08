@@ -3,7 +3,8 @@
     
     $COOKIES = new Cookie();
     $USER = new User();
-    $FORUM = new Forum();
+        
+    //$COOKIES->setCookie($d);
     
     $page = $_REQUEST["page"];
     $action = $_REQUEST["action"];
@@ -47,6 +48,7 @@
     switch($page){
         case "forum" :
             $MENU["forum"] = true;
+            $data = $COOKIES->getCookieVal("forum");
             if(isset($_REQUEST["sujet"]) && $_REQUEST["sujet"] != null){
                 $sujet = str_replace("_"," ",$_REQUEST["sujet"]);                
                 if(isset($_REQUEST["discussion"]) && $_REQUEST["discussion"] != null){

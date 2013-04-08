@@ -19,45 +19,99 @@ class Cookie {
         }
         self::$instance = $this;
         if(isset($_COOKIE["ift215"])){ 
-            self::$instance->myCookie = unserialize( str_replace("\\","",$_COOKIE["ift215"]));  
+            self::$instance->myCookie = unserialize( str_replace(array("\\"),array(""),$_COOKIE["ift215"]));  
         }else{
             self::$instance->myCookie = array(
                 "isAdmin" => false, 
                 "isConnected" => false, 
                 "forum" => array(
-                    "Les LAN" => array(
+                    "Les LANs" => array(
                         "Le trop mega cool lan party" => array(
-                            "Administrateur" => array(
+                            "auteur" => "Administrateur",
+                            "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                            "content" => array(
                                 "userPostID" => 1,
                                 "comment" => "Voila le trop mega cool lan party est prévue pour le 25 Mai 2013, les inscriptions sont ouvertes!",
                                 "nbReply" => 1,
                                 "reply" => array(
-                                    "AnonymeUser1" => array(
-                                        "userPostID" => 2,
-                                        "comment" => "J'ai fais un test d'inscription et sa ne semble pas fonctionner y a-t-il un problème avec le site?",
+                                    array(
+                                        "auteur" => "Joueur",
+                                        "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                                        "content" => array(
+                                            "userPostID" => 2,
+                                            "comment" => "Je n'arrive pas a m'inscrire au lan, est-ce normal?",
+                                            "nbReply" => 1,
+                                            "reply" => array(
+                                                array(
+                                                    "auteur" => "Administrateur",
+                                                    "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                                                    "content" => array(
+                                                        "userPostID" => 3,
+                                                        "comment" => "Je vais voir si je peux t'aider avec ton probleme.",
+                                                        "nbReply" => 0,
+                                                        "reply" => array(
+                                                            array(
+
+                                                            )//fin array in reply
+                                                        )//fin reply
+                                                    ), //fin content
+                                                    "consultation" => 22,
+                                                    "date" => "13-02-2013",
+                                                    "close" => "false"
+                                                )//fin array in reply
+                                            )//fin reply
+                                        ), //fin content
+                                        "consultation" => 22,
                                         "date" => "13-02-2013",
-                                        "nbReply" => 1,
-                                        "reply" => array("Administrateur" => "c'est vraiment étrange tous sa :( <br/>je te revien la dessus dès que possible.")
-                                    )
-                                )
-                            ),
-                            "nbPost" => 2,
+                                        "close" => "false"
+                                    )//fin array in reply
+                                )//fin reply
+                            ), //fin content
                             "consultation" => 22,
-                            "date" => "13-02-2013"
-                        )
+                            "date" => "13-02-2013",
+                            "close" => "false"
+                        )//fin du lan
                     ),
                     "Jeux PC" => array(
                         "Counter strike" => array(
-                            "AnonymeUser1" => array(
+                            "auteur" => "AnonymeUser1",
+                            "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                            "content" => array(
                                 "userPostID" => 1,
                                 "comment" => "Wow le nouveau counter strike est sortie sur Steam j ai trop hate d'y jouer",
                                 "nbReply" => 0,
-                                "reply" => array()
-                            ),
-                            "nbPost" => 1,
-                            "consultation" => 1045,
-                            "date" => "13-02-2013"
+                                "reply" => array(
+                                    array(
+
+                                    )//fin array in reply
+                                )//fin reply
+                            ), //fin content
+                            "consultation" => 22,
+                            "date" => "13-02-2013",
+                            "close" => "false"
                         )
+                    )
+                ),
+                "gestionLan" => array(
+                    "Next-Gen" => array(
+                      "date" => "22-11-2013",
+                      "etat" => "Inactif",
+                    ),
+                    "OP Gamer'Z Style" => array(
+                      "date" => "22-03-2013",
+                      "etat" => "Actif",
+                    ),
+                    "8-Bit Madness" => array(
+                      "date" => "09-11-2012",
+                      "etat" => "Terminé",
+                    ),
+                    "Critical Strike" => array(
+                      "date" => "01-04-2012",
+                      "etat" => "Terminé",
+                    ),
+                    "Big Bang" => array(
+                      "date" => "10-11-2011",
+                      "etat" => "Annulé",
                     )
                 )
             );
@@ -80,8 +134,8 @@ class Cookie {
             $tmp = serialize($arr);
             setcookie("ift215", $tmp, time()+3600*24*30);
         }else if($key != ""){
-            $this->myCookie[$key] = $val;
-            $this->setCookie($this->myCookie);
+            self::$instance->myCookie[$key] = $val;
+            self::$instance->setCookie(self::$instance->myCookie);
         }
     }
     public function setCookie($theCookie){
