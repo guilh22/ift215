@@ -76,3 +76,29 @@
 .descPhoto span{
     display: block;
 }
+#creation{
+    margin-left: 180px;
+}
+.formulaire #nomClan{
+    margin-left:50px;
+}
+.formulaire #champNom,
+.formulaire #prenom{
+    margin-left:9px;
+}
+.formulaire #email,
+.formulaire #champEmail,
+.formulaire #avatar,
+.formulaire #nomClan,
+.formulaire #champNomClan,
+.formulaire .selectClan,
+.formulaire #choixNomClan,
+.formulaire #choisirAvatar{
+    margin-top:10px;
+}
+.formulaire #choisirAvatar{
+    margin-left:20px;
+}
+.formulaire #soumettreInscription{
+    margin-top:30px;
+}

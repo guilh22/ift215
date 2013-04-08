@@ -13,9 +13,9 @@
                 <a href="?page=forum"><img id="logo" src="view/images/header/logo.png" alt="No Man’Z Lan Logo"/></a>
                 <div id = "connexion" >
                     <form id="loginForm" method="post" action="?page=<?php echo $MENU['currentPage']; ?>&action=login">
-                        <label>Utilisateur </label>: 
+                        <label for="utilisateur">Surnom :</label> 
                         <input type="text" id="utilisateur" name="utilisateur" size="30" required/></br>
-                        <label>Mot de passe </label>: 
+                        <label for="motDePasse">Mot de passe :</label>
                         <input type="password" id="motDePasse" name="motDePasse" size="30" required/></br>
                         <input type="button" value="S'inscrire" onclick="jQuery('#loginForm').attr('action','?page=inscription');jQuery('#loginForm').submit();">
                         <input type="submit" value="Connexion">

@@ -22,7 +22,7 @@ Règlement</br>
     et vulputate et, suscipit eu lectus. Mauris quis dolor a nulla
 </div>
 <form method="post" action="?page=inscriptionLan2&action=login">
-    <input type="checkbox" value="accept" required onclick="if(jQuery('.submitInscription').attr('disabled') == 'disabled'){jQuery('.submitInscription').removeAttr('disabled')}else{jQuery('.submitInscription').attr('disabled','disbaled')}"/>
-    <label>J'accepte les règlements</label></br>
+    <input type="checkbox" id="accepte" value="accept" required onclick="if(jQuery('.submitInscription').attr('disabled') == 'disabled'){jQuery('.submitInscription').removeAttr('disabled')}else{jQuery('.submitInscription').attr('disabled','disbaled')}"/>
+    <label for="accepte">J'accepte les règlements</label></br>
     <input type="submit" value="Confirmer mon inscription au LAN" class="submitInscription" disabled="disabled"/>
 </form>

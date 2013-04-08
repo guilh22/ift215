@@ -7,8 +7,8 @@
     <form method="post" action="?page=inscriptionLan3&action=login" class="choix">
         <table border="1" cellpadding="0" cellspacing="0">
            <tr>
-               <td><input type="radio" value="none" name="paiement" class="paiementComptant" checked onclick="jQuery('.suivant').attr('value','Terminer')"/><label>Paiement sur place</label></td>
-               <td><input type="radio" value="paypal" name="paiement" class="paypal" onclick="jQuery('.suivant').attr('value','Continuer')"/><label>Paiement PayPal</label></td>
+               <td><input type="radio" value="none" name="paiement" class="paiementComptant" id="paiementComptant" checked onclick="jQuery('.suivant').attr('value','Terminer')"/><label for="paiementComptant">Paiement sur place</label></td>
+               <td><input type="radio" value="paypal" name="paiement" class="paypal" id="paypal" onclick="jQuery('.suivant').attr('value','Continuer')"/><label for="paypal">Paiement PayPal</label></td>
            </tr>
            <tr>
                <td>
