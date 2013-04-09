@@ -167,8 +167,14 @@
                 if(isset($_REQUEST["discussion"]) && $_REQUEST["discussion"] != null){
                     $discussion = str_replace("_"," ",$_REQUEST["discussion"]);
                     include 'view/forum_lvl2.php';
+                    if($USER->isConnected()){
+                        include 'view/postingInForum.php';
+                    }
                 }else{
                     include 'view/forum_lvl1.php';
+                    if($USER->isConnected()){
+                        include 'view/makeSubject.php';
+                    }
                 }
             }else{
                 include 'view/accueil.php';
