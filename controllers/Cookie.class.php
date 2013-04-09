@@ -32,40 +32,39 @@ class Cookie {
                             "content" => array(
                                 "userPostID" => 1,
                                 "comment" => "Voila le trop mega cool lan party est prévue pour le 25 Mai 2013, les inscriptions sont ouvertes!",
-                                "nbReply" => 1,
+                                "nbReply" => 2,
                                 "reply" => array(
                                     array(
-                                        "auteur" => "Joueur",
+                                        "auteur" => "DeadKiller",
                                         "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
                                         "content" => array(
                                             "userPostID" => 2,
                                             "comment" => "Je n'arrive pas a m'inscrire au lan, est-ce normal?",
-                                            "nbReply" => 1,
+                                            "nbReply" => 0,
                                             "reply" => array(
-                                                array(
-                                                    "auteur" => "Administrateur",
-                                                    "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
-                                                    "content" => array(
-                                                        "userPostID" => 3,
-                                                        "comment" => "Je vais voir si je peux t'aider avec ton probleme.",
-                                                        "nbReply" => 0,
-                                                        "reply" => array(
-                                                            array(
-
-                                                            )//fin array in reply
-                                                        )//fin reply
-                                                    ), //fin content
-                                                    "consultation" => 22,
-                                                    "date" => "13-02-2013",
-                                                    "close" => "false"
-                                                )//fin array in reply
+                                                
                                             )//fin reply
                                         ), //fin content
                                         "consultation" => 22,
                                         "date" => "13-02-2013",
                                         "close" => "false"
-                                    )//fin array in reply
-                                )//fin reply
+                                    ),
+                                    array(
+                                        "auteur" => "Administrateur",
+                                        "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                                        "content" => array(
+                                            "userPostID" => 3,
+                                            "comment" => "Je vais voir si je peux t'aider avec ton probleme.",
+                                            "nbReply" => 0,
+                                            "reply" => array(
+                                                
+                                            )//fin reply
+                                        ), //fin content
+                                        "consultation" => 22,
+                                        "date" => "13-02-2013",
+                                        "close" => "false"
+                                    )
+                                )//fin des reply
                             ), //fin content
                             "consultation" => 22,
                             "date" => "13-02-2013",
@@ -74,7 +73,7 @@ class Cookie {
                     ),
                     "Jeux PC" => array(
                         "Counter strike" => array(
-                            "auteur" => "AnonymeUser1",
+                            "auteur" => "HollyPownedInYourFace",
                             "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
                             "content" => array(
                                 "userPostID" => 1,
@@ -116,7 +115,7 @@ class Cookie {
                 )
             );
             $tmp = serialize(self::$instance->myCookie);
-            setcookie("ift215", $tmp, time()+3600*24*30);
+            setcookie("ift215", $tmp, time()+3600*24);
             
         }
                 
