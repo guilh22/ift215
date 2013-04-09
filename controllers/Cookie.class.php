@@ -19,7 +19,10 @@ class Cookie {
         }
         self::$instance = $this;
         if(isset($_COOKIE["ift215"])){ 
-            self::$instance->myCookie = unserialize( str_replace(array("\\"),array(""),$_COOKIE["ift215"]));  
+            $key = unserialize( str_replace(array("\\"),array(""),$_COOKIE["ift215"]));  
+            foreach($key as $k){
+                self::$instance->myCookie[$k] = unserialize( str_replace(array("\\"),array(""),$_COOKIE[$k]));
+            }
         }else{
             self::$instance->myCookie = array(
                 "isAdmin" => false, 
@@ -138,7 +141,13 @@ class Cookie {
         }
     }
     public function setCookie($theCookie){
-        $tmp = serialize($theCookie);
+        $key = array();
+        foreach($theCookie as $k => $c){
+            $tmp = serialize($c);
+            setcookie($k, $tmp, time()+3600*24*30);
+            $key[] = $k;
+        }
+        $tmp = serialize($key);
         setcookie("ift215", $tmp, time()+3600*24*30);
     }
     

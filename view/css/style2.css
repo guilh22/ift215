@@ -364,3 +364,9 @@ table.forum2 tr td + td{
     border:1px solid white;
     border-bottom:none;
 }
+
+pre{
+    width:960px;
+    word-break: break-all;
+    word-wrap:break-word;
+}

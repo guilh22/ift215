@@ -1,5 +1,12 @@
 <?php
     include "ctnInclude.php";
+    $to_print = array();
+    function debug($arr,$b=false,$s=false){
+        global $to_print;
+        if($b){$to_print["v"][] = $arr; }
+        elseif($s){ $to_print["s"][] = $arr; }
+        else{ $to_print["p"][] = $arr; }
+    }
     
     $COOKIES = new Cookie();
     $USER = new User();
@@ -23,16 +30,44 @@
             $USER->deconnexion();
             $url = "?";
             $counter = 1;
-            foreach($_GET as $key => $val){ if($key != "action"){$url .= ($counter == 1? $key."=".$val : "&".$key."=".$val); }}
+            foreach($_GET as $key => $val){ if($key != "action"){$url .= ($counter == 1? $key."=".$val : "&".$key."=".$val); ++$counter; }}
             header("location:".$url);
         break;
         
         case "post":
-            //$FORUM->addComment($_REQUEST["forum"], $_REQUEST["subject"], $_REQUEST["userPostID"])
+            if(isset($_REQUEST["reply"]) && $_REQUEST["reply"] != ""){
+                $f = $COOKIES->getCookieVal("forum");
+                $s = str_replace("_"," ",$_REQUEST["sujet"]);
+                $d = str_replace("_"," ",$_REQUEST["discussion"]);
+                $reply = array(
+                    "auteur" => $USER->getUsername(),
+                    "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                    "content" => array(
+                        "userPostID" => count( $f[$s][$d]["content"]["reply"] ) + 1,
+                        "comment" => $_REQUEST["reply"],
+                        "nbReply" => 0,
+                        "reply" => array(
+
+                        )//fin reply
+                    ), //fin content
+                    "consultation" => 0,
+                    "date" => date("Y-m-d h:i"),
+                    "close" => "false"
+                );
+                $f[$s][$d]["content"]["reply"][] = $reply;
+                //debug($forum);
+                $COOKIES->setCookieAttr("forum",$f);
+                $url = "?";
+                $counter = 1;
+                foreach($_GET as $key => $val){ if($key != "action"){$url .= ($counter == 1? $key."=".$val : "&".$key."=".$val); ++$counter;}}
+                header("location:".$url);
+            }
         break;    
         default:
         break;
     }
+    //$forum = $COOKIES->getCookieVal("forum");
+    //debug($forum);
     
     $MENU = array();
     $MENU["currentPage"] = $page;
@@ -46,6 +81,13 @@
         include 'view/headerCon.php';
     }else{
         include "view/header.php";
+    }
+    if(count($to_print) > 0){
+        print "<pre>";
+        if(count($to_print["v"])>0) foreach($to_print["v"] as $v)var_dump($v);
+        if(count($to_print["p"])>0) foreach($to_print["p"] as $p)print_r($p);
+        if(count($to_print["s"])>0) foreach($to_print["s"] as $s) print($s);
+        print "</pre>";
     }
     
     

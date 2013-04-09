@@ -18,7 +18,7 @@
     ?>
 </table>
 <div id="posting">
-    <form name="formulaire" method="post" action="?page=forum&sujet=<?php echo $sujet; ?>&discussion=<?php echo $discussion; ?>&action=post">
+    <form name="formulaire" method="post" action="?page=forum&sujet=<?php echo str_replace(" ","_",$sujet); ?>&discussion=<?php echo str_replace(" ","_",$discussion);; ?>&action=post">
         <input type="hidden" name="sujet" value="<?php echo $sujet; ?>"/>
         <input type="hidden" name="discussion" value="<?php echo $discussion; ?>"/>
         <div class="relative" style="height:24px;">
