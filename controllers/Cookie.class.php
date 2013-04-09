@@ -18,12 +18,16 @@ class Cookie {
             return self::$instance;
         }
         self::$instance = $this;
+        $key = array();
         if(isset($_COOKIE["ift215"])){ 
             $key = unserialize( str_replace(array("\\"),array(""),$_COOKIE["ift215"]));  
-            foreach($key as $k){
-                self::$instance->myCookie[$k] = unserialize( str_replace(array("\\"),array(""),$_COOKIE[$k]));
+            if(count($key) > 1){
+                foreach($key as $k){
+                    self::$instance->myCookie[$k] = unserialize( str_replace(array("\\"),array(""),$_COOKIE[$k]));
+                }
             }
-        }else{
+        }
+        if(count($key) == 0){
             self::$instance->myCookie = array(
                 "isAdmin" => false, 
                 "isConnected" => false, 
@@ -115,11 +119,18 @@ class Cookie {
                       "date" => "10-11-2011",
                       "etat" => "Annulé",
                     )
+                ),
+                "listeJeux" => array(
+                    "League of legends",
+                    "Battlefield 3",
+                    "Dota 2",
+                    "Starcraft 2",
+                    "Guildwars 2",
+                    "Age of Empire III",
+                    "Diablo 3"
                 )
             );
-            $tmp = serialize(self::$instance->myCookie);
-            setcookie("ift215", $tmp, time()+3600*24);
-            
+            self::$instance->setCookie(self::$instance->myCookie);
         }
                 
         return self::$instance;

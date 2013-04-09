@@ -94,12 +94,14 @@
     switch($page){
         case "votreEspace" :
             $data = array(
-                        "user" => $COOKIES->getCookieVal('user'),
-                        "name" => $COOKIES->getCookieVal('name'),
-                        "lastName" => $COOKIES->getCookieVal('lastName'),
-                        "email" => $COOKIES->getCookieVal('email'),
-                        "clan" => $COOKIES->getCookieVal('clan')
-                    );
+                "user" => $COOKIES->getCookieVal('user'),
+                "name" => $COOKIES->getCookieVal('name'),
+                "lastName" => $COOKIES->getCookieVal('lastName'),
+                "email" => $COOKIES->getCookieVal('email'),
+                "clan" => $COOKIES->getCookieVal('clan'),
+                "listeJeux" => $COOKIES->getCookieVal('listeJeux'),
+                "userListeJeux" => $COOKIES->getCookieVal('userListeJeux'),
+            );
             include 'view/votreEspace.php';
         break;
         case "evenement" :
@@ -149,6 +151,10 @@
         case "confirmationEvent" :
             $MENU["inscription"] = true;
             include 'view/confirmationEvenement.php';
+        break;
+        case "paypalConfirm" :
+            $MENU["inscription"] = true;
+            include 'view/confirmationEvenementPaypal.php';
         break;
         case "reglements" :
             $MENU["reglements"] = true;

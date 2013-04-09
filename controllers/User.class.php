@@ -56,6 +56,13 @@ class User {
              $this->cookie->setCookieAttr("name","Bessam");
              $this->cookie->setCookieAttr("email","Bessam.Abdulrazak@usherbrooke.ca");
              $this->cookie->setCookieAttr("clan","A horse jumping an edge");
+             $arr = array(
+                    "battlefield3" => "Battlefield 3",
+                    "starcraft2" => "Starcraft 2",
+                    "guildwars2" => "Guildwars 2",
+                    "diablo3" => "Diablo 3"
+              );
+             $this->cookie->setCookieAttr("userListeJeux",$arr);
              return true;
          }else{
              return false;
