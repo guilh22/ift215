@@ -9,23 +9,25 @@
             </select>
              */
             ?>
+            
         </div>
         <div>
-            <input id="addSubject" name="addSubject" onkeyup="calc();"></textarea>
+            <label for="addSubject">Créer un nouveau sujet : </label><input id="addSubject" name="addSubject" onkeyup="calc();"/>
         </div>
         <div>
-            <span class="legend">Il vous reste <span>35</span> caractère(s)</span>
+            <span class="legend" style="float:left;margin-left:0;">Il vous reste <span>35</span> caractère(s)</span>
         </div>
-        <div class="clear"></div>        
+        <div class="clear"></div> 
+        <div><input type="submit" value="Enregistrer le nouveau sujet"/></div>       
     </form>
 </div>
 <script type="text/javascript">
     function calc(){
-        var nb = 35 - jQuery("#reply").val().length;
+        var nb = 35 - jQuery("#addSubject").val().length;
         if(nb < 0){
             alert("Vous avez dépasser le nombre de caractères permis.");
-            jQuery("#reply").val(jQuery("#reply").val().substring(35,''));
-            nb = 35 - jQuery("#reply").val().length;
+            jQuery("#addSubject").val(jQuery("#addSubject").val().substring(35,''));
+            nb = 35 - jQuery("#addSubject").val().length;
         }else if(nb == 35){
             if(jQuery(".submit").hasClass('marge')) jQuery(".submit").removeClass("marge");
         }else{

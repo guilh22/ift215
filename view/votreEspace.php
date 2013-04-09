@@ -63,12 +63,16 @@
 </div>
 
 <script type="text/javascript">
+    var forceEnable = false;
     function checkBouton(){
         var enable = false;
         if('<?php echo $data['email'];?>' != jQuery('.courriel').val()){
             enable = true;
         }
         if(jQuery('#inClan').css('display') == 'none'){
+            enable = true;
+        }
+        if(forceEnable){
             enable = true;
         }
         if(enable){
@@ -79,6 +83,7 @@
     }
     checkBouton();
     function deleteThisGame(string){
+        forceEnable = true;
         jQuery('.listofgameproposed').show();
         var arr = [<?php if(!empty($data["listeJeux"])){ foreach($data["listeJeux"] as $key => $jeux){ ?>
             '<?php echo str_replace(' ','',$jeux); ?>',
@@ -93,8 +98,11 @@
             }
         }
         jQuery('.'+string).remove();
+        checkBouton();
     }
     function addGame(){
-        jQuery('.listeJeux').append('<span class="'+jQuery('.games option:selected').text().replace(' ','').replace(' ','').replace(' ','')+'">, <span onclick="deleteThisGame(\'' + jQuery('.games option:selected').text().replace(' ','').replace(' ','') + '\');">-</span>'+jQuery('.games option:selected').text()+'</span>');
+        forceEnable = true;
+        jQuery('.listeJeux').append('<span class="'+jQuery('.games option:selected').text().replace(' ','').replace(' ','').replace(' ','')+'">, <span onclick="deleteThisGame(\'' + jQuery('.games option:selected').text().replace(' ','').replace(' ','').replace(' ','') + '\');">-</span>'+jQuery('.games option:selected').text()+'</span>');
+        checkBouton();
     }
 </script>

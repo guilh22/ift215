@@ -133,6 +133,9 @@
             if($_REQUEST["action"] == "confirmation"){
                 include 'view/confirmation.php';
             }else{
+                $data = array(
+                    "listeJeux" => $COOKIES->getCookieVal('listeJeux'),
+                );
                 include 'view/inscription.php';
             }
         break;
