@@ -37,7 +37,7 @@ class User {
     }
     public function connexion($user = "", $pass = ""){
          if($user == "admin" && $pass == "admin"){             
-             $this->cookie->setCookieAttr("user","administrateur");
+             $this->cookie->setCookieAttr("user","admin");
              $this->isAdmin = true;
              $this->isConnected = true;
              $this->cookie->setCookieAttr("isAdmin",true);

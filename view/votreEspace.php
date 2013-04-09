@@ -5,34 +5,24 @@
         Information personnelle
         </div>
         <label id="nom">Nom * : </label>
-        <input type="text" id="champNom" name="nom" size="30" value="<?php echo $data['lastName'];?>" required/>
+        <input type="text" id="champNom" name="nom" size="30" value="<?php echo $data['lastName'];?>" disabled/>
         <label id="prenom">Prenom * : </label>
-        <input type="text" id="champPrenom" name="prenom" size="30" value="<?php echo $data['name'];?>" required/></br>
+        <input type="text" id="champPrenom" name="prenom" size="30" value="<?php echo $data['name'];?>" disabled/></br>
         <label id="email">Email * : </label>
-        <input type="email" id="champEmail" name="email" size="30" value="<?php echo $data['email'];?>" required/></br>
+        <input type="email" id="champEmail" class="courriel" onkeyup="if('<?php echo $data['email'];?>' != jQuery('.courriel').val()){jQuery('.soumettreModification').removeAttr('disabled');}else{jQuery('.soumettreModification').attr('disabled','disabled');}" name="email" size="30" value="<?php echo $data['email'];?>" required/></br>
         <div class="nom">
             Information public
         </div>
-        <label id="surnom">Surnom * : </label>
-        <input type="text" id="champSurnom" name="surnom" value="<?php echo $data['user'];?>" size="30" required/></br>
+        <label id="surnom">Surnom : </label>
+        <input type="text" id="champSurnom" name="surnom" value="<?php echo $data['user'];?>" size="30" disabled/></br>
         <label id="avatar">Avatar : </label>
         <input type="file" id="choisirAvatar" name="avatar"/></br>
         <div class="nom">
             Clan
         </div>
-        <input type="radio" id="existant" value="Existant" name="existe" checked onclick="jQuery('.selectClan').removeAttr('disabled');jQuery('.nomClan').attr('disabled','disabled');jQuery('.nomClan').val('');"/>
-        <label id="lblExistant">Existant</label>
-        <input type="radio" id="creation" value="Creation" name="existe" onclick="jQuery('.nomClan').removeAttr('disabled');jQuery('.selectClan').attr('disabled','disabled');"/>
-        <label id="lblCreation">Création</label></br>
-        <label class="choixNomClan" for="clan">Clan</label>
-        <select name="clan" class="selectClan">
-            <option value="No use for a name"></option>
-            <option value="No use for a name">No use for a name</option>
-            <option value="A horse jumping an edge">A horse jumping an edge</option>
-            <option value="Scatophile">Scatophile</option>
-        </select>
-        <label id="nomClan">Nom : </label>
-        <input type="text" id="champNomClan" class="nomClan" name="nomClan" disabled/></br>
+        <label class="choixNomClan" for="clan">Clan : </label>
+        <input type="text" class="nomClan" value="<?php echo $data['clan'];?>" disabled/>
+        <input type="button" class="quitterClan" value="Quitter le clan" onclick="jQuery('.nomClan').val('');jQuery('.quitterClan').attr('disabled','disabled');jQuery('.nomClan').removeAttr('disabled');"/>
         <div class="nom">
             Liste de jeux
         </div>
@@ -44,6 +34,6 @@
             <option value="diablo3">Diablo 3</option>
         </select>
         </br>
-        <input id="soumettreInscription" type="submit" value="Soumettre l'inscription">
+        <input class="soumettreModification" id="soumettreInscription" type="submit" value="Soumettre les modifications" disabled>
     </form>
 </div>
