@@ -53,12 +53,6 @@
 .clear{
     clear: both;
 }
-#test{
-    margin-top: 15px;
-    background: red;
-    height: 32px;
-    margin-bottom:0;
-}
 #condition{
     border:1px solid black;
     overflow:auto;
@@ -97,5 +91,26 @@
     margin-left:20px;
 }
 .formulaire #soumettreInscription{
+    margin-top:30px;
+}
+#place{
+    border: 1px solid white;
+    
+}
+#imageReservation{
+    text-align: center;
+}
+#libre,
+#reserver,
+#organisateur,
+#lblLibre,
+#lblReserver,
+#lblOrganisateur,
+#champReserver,
+#lblChampReserver{
+    margin-top:10px;
+    margin-right:10px;
+}
+.finish{
     margin-top:30px;
 }
