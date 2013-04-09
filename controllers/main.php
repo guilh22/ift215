@@ -36,7 +36,11 @@
     
     $MENU = array();
     $MENU["currentPage"] = $page;
-    if($USER->isConnected() && $USER->isAdmin()){
+    if($USER->isConnected() && $page == "inscription"){
+        header("location:?page=forum");
+    }else if($USER->isConnected() == false && $page == "votreEspace"){
+        header("location:?page=forum");
+    }else if($USER->isConnected() && $USER->isAdmin()){
         include 'view/headerConAd.php';
     }else if($USER->isConnected()){
         include 'view/headerCon.php';
@@ -46,20 +50,15 @@
     
     
     switch($page){
-        case "forum" :
-            $MENU["forum"] = true;
-            $data = $COOKIES->getCookieVal("forum");
-            if(isset($_REQUEST["sujet"]) && $_REQUEST["sujet"] != null){
-                $sujet = str_replace("_"," ",$_REQUEST["sujet"]);                
-                if(isset($_REQUEST["discussion"]) && $_REQUEST["discussion"] != null){
-                    $discussion = str_replace("_"," ",$_REQUEST["discussion"]);
-                    include 'view/forum_lvl2.php';
-                }else{
-                    include 'view/forum_lvl1.php';
-                }
-            }else{
-                include 'view/accueil.php';
-            }            
+        case "votreEspace" :
+            $data = array(
+                        "user" => $COOKIES->getCookieVal('user'),
+                        "name" => $COOKIES->getCookieVal('name'),
+                        "lastName" => $COOKIES->getCookieVal('lastName'),
+                        "email" => $COOKIES->getCookieVal('email'),
+                        "clan" => $COOKIES->getCookieVal('clan')
+                    );
+            include 'view/votreEspace.php';
         break;
         case "evenement" :
             $MENU["evenement"] = true;
@@ -117,9 +116,21 @@
             $MENU["historique"] = true;
             include 'view/historique.php';
         break;
+        case "forum" :
         default:
-            $MENU["accueil"] = true;
-            include 'view/accueil.php';
+            $MENU["forum"] = true;
+            $data = $COOKIES->getCookieVal("forum");
+            if(isset($_REQUEST["sujet"]) && $_REQUEST["sujet"] != null){
+                $sujet = str_replace("_"," ",$_REQUEST["sujet"]);                
+                if(isset($_REQUEST["discussion"]) && $_REQUEST["discussion"] != null){
+                    $discussion = str_replace("_"," ",$_REQUEST["discussion"]);
+                    include 'view/forum_lvl2.php';
+                }else{
+                    include 'view/forum_lvl1.php';
+                }
+            }else{
+                include 'view/accueil.php';
+            }            
         break;
     }
     

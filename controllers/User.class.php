@@ -21,6 +21,10 @@ class User {
         $this->isConnected = $this->cookie->getCookieVal("isConnected");
         if($this->isConnected){
             $this->user = $this->cookie->getCookieVal("user");
+            $this->name = $this->cookie->getCookieVal("name");
+            $this->nickname = $this->cookie->getCookieVal("lastName");
+            $this->email = $this->cookie->getCookieVal("email");
+            $this->clan = $this->cookie->getCookieVal("clan");
         }
         return $this;
     }
@@ -33,17 +37,25 @@ class User {
     }
     public function connexion($user = "", $pass = ""){
          if($user == "admin" && $pass == "admin"){             
-             $this->user = "administrateur";
+             $this->cookie->setCookieAttr("user","administrateur");
              $this->isAdmin = true;
              $this->isConnected = true;
              $this->cookie->setCookieAttr("isAdmin",true);
              $this->cookie->setCookieAttr("isConnected",true);
+             $this->cookie->setCookieAttr("lastName","Labrie");
+             $this->cookie->setCookieAttr("name","Kevin");
+             $this->cookie->setCookieAttr("email","kevin.k.labrie@usherbrooke.ca");
+             $this->cookie->setCookieAttr("clan","No use for a name");
              return true;
          }else if($user == "joueur" && $pass == "joueur"){
-             $this->user = "HollyFacePowned";
+             $this->cookie->setCookieAttr("user","joueur");
              $this->isConnected = true;
              $this->cookie->setCookieAttr("isAdmin",false);
              $this->cookie->setCookieAttr("isConnected",true);
+             $this->cookie->setCookieAttr("lastName","Abdulrazak");
+             $this->cookie->setCookieAttr("name","Bessam");
+             $this->cookie->setCookieAttr("email","Bessam.Abdulrazak@usherbrooke.ca");
+             $this->cookie->setCookieAttr("clan","A horse jumping an edge");
              return true;
          }else{
              return false;
@@ -64,6 +76,18 @@ class User {
     }
     public function getUsername(){
         return $this->user;
+    }
+    public function getName(){
+        return $this->name;
+    }
+    public function getLastName(){
+        return $this->lastName;
+    }
+    public function getEmail(){
+        return $this->email;
+    }
+    public function getClan(){
+        return $this->clan;
     }
     
     
