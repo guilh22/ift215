@@ -51,5 +51,3 @@
         </td>
     </tr>
 </table>
-
-<form id="loginForm" method="post" action="?page=<?php echo $MENU["currentPage"]; ?>&action=login">

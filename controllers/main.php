@@ -63,6 +63,36 @@
                 header("location:".$url);
             }
         break;    
+        case "addDiscussion":
+            if(isset($_REQUEST["addDiscussion"]) && $_REQUEST["addDiscussion"] != ""){
+                $f = $COOKIES->getCookieVal("forum");
+                $s = str_replace("_"," ",$_REQUEST["sujet"]);
+                $d = str_replace("_"," ",$_REQUEST["addDiscussion"]);
+                $f[$s][$d] = array(
+                    "auteur" => $USER->getUsername(),
+                    "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                    "content" => array(
+                        "userPostID" => 1,
+                        "comment" => $_REQUEST["reply"],
+                        "nbReply" => 0,
+                        "reply" => array(
+                            array(
+
+                            )//fin array in reply
+                        )//fin reply
+                    ), //fin content
+                    "consultation" => 0,
+                    "date" => date("Y-m-d h:i"),
+                    "close" => "false"
+                );
+                //debug($forum);
+                $COOKIES->setCookieAttr("forum",$f);
+                $url = "?";
+                $counter = 1;
+                foreach($_GET as $key => $val){ if($key != "action"){$url .= ($counter == 1? $key."=".$val : "&".$key."=".$val); ++$counter;}}
+                header("location:".$url);
+            }
+        break;    
         default:
         break;
     }
