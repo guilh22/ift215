@@ -23,21 +23,23 @@
         <div id="inClan" style="display:<?php echo ($data['clan'] != '')?'block':'none'; ?>">
             <label class="choixNomClan" for="clan">Clan : </label>
             <input type="text" class="nomClan" value="<?php echo $data['clan'];?>" disabled/>
-            <input type="button" class="quitterClan" value="Quitter le clan" onclick="if(confirm('Êtes vous certain de vouloir quittez votre clan?')){jQuery('.nomClan').val('');jQuery('.quitterClan').attr('disabled','disabled');jQuery('.nomClan').removeAttr('disabled');jQuery('#inClan').hide();jQuery('#createClan').show();checkBouton();}"/>
+            <input type="button" class="quitterClan" value="Quitter le clan" onclick="if(confirm('Êtes vous certain de vouloir quittez votre clan?')){jQuery('.nomClan').val('');jQuery('.quitterClan').attr('disabled','disabled');jQuery('#inClan').hide();jQuery('#createClan').show();checkBouton();}"/>
         </div>
         <div id="createClan" style="display:<?php echo ($data['clan'] == '')?'block':'none'; ?>;">
             <div class="comment" style="margin-bottom:10px;">*Vous auriez officiellement quitter votre clan une fois que vous aurez cliquer sur le bouton : "Soumettre les modifications".</div>
-            <input type="radio" id="existant" value="Existant" name="existe" checked onclick="jQuery('.selectClan').removeAttr('disabled');jQuery('.nomClan').attr('disabled','disabled');jQuery('.nomClan').val('');"/>
+            <input type="radio" id="existant" value="Existant" name="existe" checked onclick="jQuery('.selectClan').removeAttr('disabled');jQuery('.nomClan').val('');jQuery('.nomClan').attr('disabled','disabled');"/>
             <label id="lblExistant">Existant</label>
             <input type="radio" id="creation" value="Creation" name="existe" onclick="jQuery('.nomClan').removeAttr('disabled');jQuery('.selectClan').attr('disabled','disabled');"/>
             <label id="lblCreation">Création</label></br>
             <label class="choixNomClan" for="clan">Clan</label>
             <select name="clan" class="selectClan">
-                <option value="No use for a name"></option>
+                <option></option>
                 <option value="No use for a name">No use for a name</option>
                 <option value="A horse jumping an edge">A horse jumping an edge</option>
                 <option value="Scatophile">Scatophile</option>
             </select>
+            <label id="nomClan">Nom : </label>
+            <input type="text" id="champNomClan" class="nomClan" name="nomClan" disabled/></br>
         </div>
         
         <div class="nom">
