@@ -251,6 +251,7 @@ h1{
 
 #test{
     color:white;
+    background:#d30000;
     text-align: center;
     line-height: 30px;
 }
@@ -369,4 +370,12 @@ pre{
     width:960px;
     word-break: break-all;
     word-wrap:break-word;
+}
+
+.listeJeux span span{
+    padding:0px 6px;
+    background:#4e4e4e;
+    border:1px solid white;
+    cursor:pointer;
+    margin-right:2px;
 }
