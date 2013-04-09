@@ -17,7 +17,7 @@
                         Prochain événement <br />
                         No Man’Z Lan : OP Gamer’Z Style <br />
                         <?php // add Date function here ?>
-                        <input type="button" value="M'iscrire à l'évènement" onclick="jQuery('#inscrireEvent').attr('action','?page=inscriptionLan1');jQuery('#inscrireEvent').submit();"/>
+                        <input type="button" id="inscrireEvenement" value="M'iscrire à l'évènement" onclick="jQuery('#inscrireEvent').attr('action','?page=inscriptionLan1');jQuery('#inscrireEvent').submit();"/>
                         <input type="submit" value="Déconnexion">
                     </form>
                 </div>

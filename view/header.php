@@ -17,7 +17,7 @@
                         <input type="text" id="utilisateur" name="utilisateur" size="30" required/></br>
                         <label for="motDePasse">Mot de passe :</label>
                         <input type="password" id="motDePasse" name="motDePasse" size="30" required/></br>
-                        <input type="button" value="S'inscrire" onclick="jQuery('#loginForm').attr('action','?page=inscription');jQuery('#loginForm').submit();">
+                        <input type="button" id="inscrire" value="S'inscrire" onclick="jQuery('#loginForm').attr('action','?page=inscription');jQuery('#loginForm').submit();">
                         <input type="submit" value="Connexion">
                     </form>
                 </div>
