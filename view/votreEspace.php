@@ -9,7 +9,7 @@
         <label id="prenom">Prenom * : </label>
         <input type="text" id="champPrenom" name="prenom" size="30" value="<?php echo $data['name'];?>" disabled/></br>
         <label id="email">Email * : </label>
-        <input type="email" id="champEmail" class="courriel" onkeyup="checkButton" name="email" size="30" value="<?php echo $data['email'];?>" required/></br>
+        <input type="email" id="champEmail" class="courriel" onkeyup="checkBouton();" name="email" size="30" value="<?php echo $data['email'];?>" required/></br>
         <div class="nom">
             Information public
         </div>
