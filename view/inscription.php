@@ -36,14 +36,59 @@
         <div class="nom">
             Liste de jeux
         </div>
-        <label id="jeu" for="jeux">Jeux : </label>
-        <select name="jeux">
-            <option value="lol">League of legends</option>
-            <option value="battlefield">Battlefield</option>
-            <option value="dota2">Dota 2</option>
-            <option value="diablo3">Diablo 3</option>
-        </select>
+        <div class="listeJeux" style="margin-bottom:10px;">
+            <?php $c = 1;if(!empty($data["userListeJeux"])){foreach($data["userListeJeux"] as $jeux){ ?>
+                <span class="<?php echo str_replace(' ','',$jeux); ?>"><?php echo ($c != 1)?', ':''; ++$c;?><span onclick="deleteThisGame('<?php echo str_replace(' ','',$jeux); ?>');">-</span><?php echo $jeux; ?></span>
+            <?php }} ?>            
+        </div>
+        <div class="listofgameproposed">
+            <label id="jeu" for="jeux">Jeux : </label>
+            <select name="jeux" class="games">
+                <?php if(!empty($data["listeJeux"])){ foreach($data["listeJeux"] as $key => $jeux){ if(!in_array($jeux,$data["userListeJeux"])){?>
+                    <option value="<?php echo $key; ?>"><?php echo $jeux; ?></option>
+                <?php }}} ?>
+            </select>
+
+            <span style="cursor:pointer;padding:0px 6px 1px;background:#4e4e4e;border:1px solid white;" onclick="addGame();jQuery('.games option:selected').remove();if(jQuery('.games option').length == 0){jQuery('.listofgameproposed').hide();}">+</span>
+        </div>
         </br>
         <input id="soumettreInscription" type="submit" value="Soumettre l'inscription">
     </form>
 </div>
+
+<script type="text/javascript">
+    function checkBouton(){
+        var enable = false;
+        if('<?php echo $data['email'];?>' != jQuery('.courriel').val()){
+            enable = true;
+        }
+        if(jQuery('#inClan').css('display') == 'none'){
+            enable = true;
+        }
+        if(enable){
+            jQuery('.soumettreModification').removeAttr('disabled');
+        }else{
+            jQuery('.soumettreModification').attr('disabled','disabled');
+        }
+    }
+    checkBouton();
+    function deleteThisGame(string){
+        jQuery('.listofgameproposed').show();
+        var arr = [<?php if(!empty($data["listeJeux"])){ foreach($data["listeJeux"] as $key => $jeux){ ?>
+            '<?php echo str_replace(' ','',$jeux); ?>',
+        <?php }} ?>];
+        var arr2 = [<?php if(!empty($data["listeJeux"])){ foreach($data["listeJeux"] as $key => $jeux){ ?>
+            '<option value="<?php echo str_replace(' ','',$key); ?>"><?php echo $jeux; ?></option>',
+        <?php }} ?>];
+            
+        for(var i = 0; i < arr.length; ++i){
+            if(arr[i] == string){
+                jQuery('.games').append(arr2[i]);
+            }
+        }
+        jQuery('.'+string).remove();
+    }
+    function addGame(){
+        jQuery('.listeJeux').append('<span class="'+jQuery('.games option:selected').text().replace(' ','').replace(' ','').replace(' ','')+'">, <span onclick="deleteThisGame(\'' + jQuery('.games option:selected').text().replace(' ','').replace(' ','').replace(' ','') + '\');">-</span>'+jQuery('.games option:selected').text()+'</span>');
+    }
+</script>  

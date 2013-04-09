@@ -97,4 +97,4 @@
     function addGame(){
         jQuery('.listeJeux').append('<span class="'+jQuery('.games option:selected').text().replace(' ','').replace(' ','').replace(' ','')+'">, <span onclick="deleteThisGame(\'' + jQuery('.games option:selected').text().replace(' ','').replace(' ','') + '\');">-</span>'+jQuery('.games option:selected').text()+'</span>');
     }
-</script>    
+</script>
