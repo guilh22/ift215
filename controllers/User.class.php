@@ -7,7 +7,12 @@
  */
 class User {
     public static $instance = NULL;
-    private $user = "";
+    private $name = "";
+    private $lastname = "";
+    private $username = "";
+    private $photo = "";
+    private $email = "";
+    private $clan = "";
     private $isAdmin = false;
     private $isConnected = false;
     private $cookie;
@@ -20,11 +25,12 @@ class User {
         $this->isAdmin = $this->cookie->getCookieVal("isAdmin");
         $this->isConnected = $this->cookie->getCookieVal("isConnected");
         if($this->isConnected){
-            $this->user = $this->cookie->getCookieVal("user");
             $this->name = $this->cookie->getCookieVal("name");
-            $this->nickname = $this->cookie->getCookieVal("lastName");
+            $this->lastname = $this->cookie->getCookieVal("lastname");
+            $this->username = $this->cookie->getCookieVal("username");
+            $this->photo = $this->cookie->getCookieVal("photo");
             $this->email = $this->cookie->getCookieVal("email");
-            $this->clan = $this->cookie->getCookieVal("clan");
+            $this->clan = $this->cookie->getCookieVal("clan");          
         }
         return $this;
     }
@@ -36,26 +42,36 @@ class User {
         return self::$instance;
     }
     public function connexion($user = "", $pass = ""){
-         if($user == "admin" && $pass == "admin"){             
-             $this->cookie->setCookieAttr("user","admin");
+         if($user == "admin" && $pass == "admin"){        
              $this->isAdmin = true;
              $this->isConnected = true;
              $this->cookie->setCookieAttr("isAdmin",true);
              $this->cookie->setCookieAttr("isConnected",true);
-             $this->cookie->setCookieAttr("lastName","Labrie");
              $this->cookie->setCookieAttr("name","Kevin");
+             $this->cookie->setCookieAttr("lastname","Labrie");
+             $this->cookie->setCookieAttr("username","admin");
              $this->cookie->setCookieAttr("email","kevin.k.labrie@usherbrooke.ca");
+             $this->cookie->setCookieAttr("photo","http://www.ift215.orbitwebsite.com/images/users/avatar.jpg");
              $this->cookie->setCookieAttr("clan","No use for a name");
              return true;
          }else if($user == "joueur" && $pass == "joueur"){
-             $this->cookie->setCookieAttr("user","joueur");
              $this->isConnected = true;
              $this->cookie->setCookieAttr("isAdmin",false);
+             $this->isAdmin = false;
              $this->cookie->setCookieAttr("isConnected",true);
-             $this->cookie->setCookieAttr("lastName","Abdulrazak");
+             $this->isConnected = true;
              $this->cookie->setCookieAttr("name","Bessam");
+             $this->name = "Bessam";
+             $this->cookie->setCookieAttr("lastname","Abdulrazak");
+             $this->lastname = "Abdulrazak";
+             $this->cookie->setCookieAttr("username","joueur");
+             $this->username = "joueur";
+             $this->cookie->setCookieAttr("photo","http://www.ift215.orbitwebsite.com/images/users/avatar2.jpg");
+             $this->photo = "http://www.ift215.orbitwebsite.com/images/users/avatar2.jpg";
              $this->cookie->setCookieAttr("email","Bessam.Abdulrazak@usherbrooke.ca");
+             $this->email = "Bessam.Abdulrazak@usherbrooke.ca";
              $this->cookie->setCookieAttr("clan","A horse jumping an edge");
+             $this->clan = "A horse jumping an edge";
              $arr = array(
                     "battlefield3" => "Battlefield 3",
                     "starcraft2" => "Starcraft 2",
@@ -82,13 +98,16 @@ class User {
         return $this->isConnected;
     }
     public function getUsername(){
-        return $this->user;
+        return $this->username;
     }
     public function getName(){
         return $this->name;
     }
     public function getLastName(){
-        return $this->lastName;
+        return $this->lastname;
+    }
+    public function getPhoto(){
+        return $this->photo;
     }
     public function getEmail(){
         return $this->email;

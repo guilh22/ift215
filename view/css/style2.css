@@ -1,3 +1,6 @@
+#connexion{
+    width:560px;
+}
 #logo{
     width:324px;
     height:192px;
@@ -97,6 +100,9 @@ nav ul li{
 }
 nav ul li:hover{
     background:#ad0c0c;
+}
+nav ul li.selected{
+    background:rgb(145, 14, 14);
 }
 nav ul li a{
     display:inline-block;
@@ -356,7 +362,7 @@ table.forum2 tr td + td{
 .opening.fermer{display:none;}
 .opening{
     position:absolute;
-    top:4px;
+    top:23px;
     right:-3px;
     font-size:16px; 
     padding:5px;
@@ -378,4 +384,59 @@ pre{
     border:1px solid white;
     cursor:pointer;
     margin-right:2px;
+    margin-left:5px;
+}
+
+.overlay{
+    background:url(../images/header/pixel.png) 0 0 repeat;
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:99999;
+}
+.overlay .boxing{
+    background:#1d1d1d;
+    border:1px solid white;
+    padding:30px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:370px;
+    height:145px;
+    margin:-103px 0 0 -210px;
+}
+
+#search .contenue table tr td{
+    padding-right:10px;
+}
+#search .contenue table tr td label{
+    cursor:pointer;
+    margin-top:5px;
+}
+#coordonnee img{
+    border:1px solid white;
+}
+
+h1 a.return{
+    display:inline-block;
+    float:left;
+    width:32px;
+    height:32px;
+    background:#1d1d1d url(../images/forum/retour.png) center center no-repeat;
+    border:1px solid white;
+    padding:5px;
+}
+
+.formulaire #choisirAvatar{
+    margin-left:10px;
+}
+
+#condition{
+    padding:10px;
+    border:1px solid white;
+}
+#accepte{
+    margin:10px 3px;
 }

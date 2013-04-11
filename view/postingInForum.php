@@ -12,6 +12,7 @@
              */
             ?>
         </div>
+        <div>Texte de votre Post</div>
         <div>
             <textarea id="reply" name="reply" onkeyup="calc();"></textarea>
         </div>

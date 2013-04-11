@@ -20,6 +20,10 @@
     switch($action){
         case "login" :
             $USER->connexion($_REQUEST["utilisateur"],$_REQUEST["motDePasse"]);
+            $url = "?";
+            $counter = 1;
+            foreach($_GET as $key => $val){ if($key != "action"){$url .= ($counter == 1? $key."=".$val : "&".$key."=".$val); ++$counter; }}
+            header("location:".$url);
         break;
         case "confirmation" :
             if($_REQUEST["page"] == "inscription"){
@@ -41,7 +45,7 @@
                 $d = str_replace("_"," ",$_REQUEST["discussion"]);
                 $reply = array(
                     "auteur" => $USER->getUsername(),
-                    "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                    "photo" => $USER->getPhoto(),
                     "content" => array(
                         "userPostID" => count( $f[$s][$d]["content"]["reply"] ) + 1,
                         "comment" => $_REQUEST["reply"],
@@ -54,8 +58,11 @@
                     "date" => date("Y-m-d h:i"),
                     "close" => "false"
                 );
+                $f[$s][$d]["date"] = date("Y-m-d h:i");
                 $f[$s][$d]["content"]["reply"][] = $reply;
-                //debug($forum);
+                $f[$s][$d]["content"]["nbReply"]++;
+                $f[$s][$d]["nbPost"]++;
+                //debug($f);
                 $COOKIES->setCookieAttr("forum",$f);
                 $url = "?";
                 $counter = 1;
@@ -70,7 +77,7 @@
                 $d = str_replace("_"," ",$_REQUEST["addDiscussion"]);
                 $f[$s][$d] = array(
                     "auteur" => $USER->getUsername(),
-                    "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
+                    "photo" => $USER->getPhoto(),
                     "content" => array(
                         "userPostID" => 1,
                         "comment" => $_REQUEST["reply"],
@@ -82,10 +89,11 @@
                         )//fin reply
                     ), //fin content
                     "consultation" => 0,
+                    "nbPost" => 1,
                     "date" => date("Y-m-d h:i"),
                     "close" => "false"
                 );
-                //debug($forum);
+                //debug($f);
                 $COOKIES->setCookieAttr("forum",$f);
                 $url = "?";
                 $counter = 1;
@@ -94,20 +102,87 @@
             }
         break;    
         default:
+            if( isset($_REQUEST["page"]) && $_REQUEST["page"] == "forum" && isset($_REQUEST["sujet"]) && isset($_REQUEST["discussion"]) && $USER->isConnected()){
+                $f = $COOKIES->getCookieVal("forum");
+                $s = str_replace("_"," ",$_REQUEST["sujet"]);
+                $d = str_replace("_"," ",$_REQUEST["discussion"]);
+                $f[$s][$d]["consultation"]++;
+                $f[$s][$d]["consultation"]++;
+                $forumUpToDate = $COOKIES->getCookieVal("forumUpToDate");
+                if(!is_array($forumUpToDate)){
+                    $forumUpToDate = array();
+                }
+                $forumUpToDate[$s][$d] = date("Y-m-d h:i");
+                $COOKIES->setCookieAttr("forum",$f);
+                $COOKIES->setCookieAttr("forumUpToDate",$forumUpToDate);
+            }
         break;
     }
-    //$forum = $COOKIES->getCookieVal("forum");
-    //debug($forum);
+    
     
     $MENU = array();
     $MENU["currentPage"] = $page;
+    
+    switch($page){
+        case "votreEspace" :
+            $MENU["votreEspace"] = true;
+        break;
+        case "evenement" :
+            $MENU["evenement"] = true;
+        break;
+        case "faq" :
+            $MENU["faq"] = true;
+        break;
+        case "coordonnee" :
+            $MENU["informations"] = true;
+            $MENU["coordonnee"] = true;
+        break;
+        case "calendrier" :
+            $MENU["calendrier"] = true;
+        break;
+        case "equipe" :
+            $MENU["informations"] = true;
+            $MENU["equipe"] = true;
+        break;
+        case "equipement" :
+            $MENU["informations"] = true;
+            $MENU["equipement"] = true;
+        break;
+        case "inscription" :
+        case "inscriptionLan1" :
+        case "inscriptionLan2" :
+        case "inscriptionLan3" :
+        case "confirmationEvent" :
+        case "paypalConfirm" :
+            $MENU["inscription"] = true;
+        break;
+        case "reglements" :
+            $MENU["informations"] = true;
+            $MENU["reglements"] = true;
+        break;
+        case "historique" :
+            $MENU["informations"] = true;
+            $MENU["historique"] = true;
+        break;
+        case "forum" :
+        default:
+            $MENU["forum"] = true;           
+        break;
+    }
+    
     if($USER->isConnected() && $page == "inscription"){
         header("location:?page=forum");
     }else if($USER->isConnected() == false && $page == "votreEspace"){
         header("location:?page=forum");
-    }else if($USER->isConnected() && $USER->isAdmin()){
+    }else if($USER->isConnected() && $USER->isAdmin()){        
+        $data["username"] = $USER->getUsername();
+        $data["name"] = $USER->getName();
+        $data["lastname"] = $USER->getLastName();
         include 'view/headerConAd.php';
     }else if($USER->isConnected()){
+        $data["username"] = $USER->getUsername();
+        $data["name"] = $USER->getName();
+        $data["lastname"] = $USER->getLastName();
         include 'view/headerCon.php';
     }else{
         include "view/header.php";
@@ -126,7 +201,7 @@
             $data = array(
                 "user" => $COOKIES->getCookieVal('user'),
                 "name" => $COOKIES->getCookieVal('name'),
-                "lastName" => $COOKIES->getCookieVal('lastName'),
+                "lastName" => $COOKIES->getCookieVal('lastname'),
                 "email" => $COOKIES->getCookieVal('email'),
                 "clan" => $COOKIES->getCookieVal('clan'),
                 "listeJeux" => $COOKIES->getCookieVal('listeJeux'),
@@ -135,31 +210,24 @@
             include 'view/votreEspace.php';
         break;
         case "evenement" :
-            $MENU["evenement"] = true;
             include 'view/evenement.php';
         break;
         case "faq" :
-            $MENU["faq"] = true;
             include 'view/faq.php';
         break;
         case "coordonnee" :
-            $MENU["coordonnee"] = true;
             include 'view/coordonnee.php';
         break;
         case "calendrier" :
-            $MENU["calendrier"] = true;
             include 'view/calendrier.php';
         break;
         case "equipe" :
-            $MENU["equipe"] = true;
             include 'view/equipe.php';
         break;
         case "equipement" :
-            $MENU["equipement"] = true;
             include 'view/equipement.php';
         break;
         case "inscription" :
-            $MENU["inscription"] = true;
             if($_REQUEST["action"] == "confirmation"){
                 include 'view/confirmation.php';
             }else{
@@ -170,39 +238,32 @@
             }
         break;
         case "inscriptionLan1" :
-            $MENU["inscription"] = true;
             include 'view/inscriptionLan1.php';
         break;
         case "inscriptionLan2" :
-            $MENU["inscription"] = true;
             include 'view/inscriptionLan2.php';
         break;
         case "inscriptionLan3" :
-            $MENU["inscription"] = true;
             include 'view/inscriptionLan3.php';
         break;
         case "confirmationEvent" :
-            $MENU["inscription"] = true;
             include 'view/confirmationEvenement.php';
         break;
         case "paypalConfirm" :
-            $MENU["inscription"] = true;
             include 'view/confirmationEvenementPaypal.php';
         break;
         case "reglements" :
-            $MENU["reglements"] = true;
             include 'view/reglements.php';
         break;
         case "historique" :
-            $MENU["historique"] = true;
             include 'view/historique.php';
         break;
         case "forum" :
         default:
-            $MENU["forum"] = true;
             $data = $COOKIES->getCookieVal("forum");
             if(isset($_REQUEST["sujet"]) && $_REQUEST["sujet"] != null){
-                $sujet = str_replace("_"," ",$_REQUEST["sujet"]);                
+                $sujet = str_replace("_"," ",$_REQUEST["sujet"]);  
+                $data["forumUpToDate"] = $COOKIES->getCookieVal("forumUpToDate");
                 if(isset($_REQUEST["discussion"]) && $_REQUEST["discussion"] != null){
                     $discussion = str_replace("_"," ",$_REQUEST["discussion"]);
                     include 'view/forum_lvl2.php';

@@ -13,7 +13,8 @@
                 <a href="?page=forum"><img id="logo" src="view/images/header/logo.png" alt="No Man’Z Lan Logo"/></a>
                 <div id = "connexion">
                     <form method="post" id="inscrireEvent" action="?page=<?php echo $MENU['currentPage']; ?>&action=logout">
-                        <h2>Bonjour, Joueur</h2>
+                        <h2>Bonjour, <?php echo $data["name"]." ".$data["lastname"]; ?></h2>
+                        <div>Surnom : <?php echo $data["username"]; ?></div>
                         Prochain événement <br />
                         No Man'Z Lan : OP Gamer’Z Style <br />
                         <?php // add Date function here ?>

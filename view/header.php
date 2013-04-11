@@ -12,14 +12,26 @@
             <header>
                 <a href="?page=forum"><img id="logo" src="view/images/header/logo.png" alt="No Man’Z Lan Logo"/></a>
                 <div id = "connexion" >
-                    <form id="loginForm" method="post" action="?page=<?php echo $MENU['currentPage']; ?>&action=login">
+                    <form id="loginForm" method="post" action="?page=<?php echo $MENU['currentPage']; ?>&action=login<?php foreach($_GET as $key => $val){ if($key != "action" && $key != "page"){echo "&".$key."=".$val; }} ?>">
                         <label for="utilisateur">Surnom :</label> 
                         <input type="text" id="utilisateur" name="utilisateur" size="30" required/></br>
                         <label for="motDePasse">Mot de passe :</label>
                         <input type="password" id="motDePasse" name="motDePasse" size="30" required/></br>
-                        <input type="button" id="inscrire" value="S'inscrire" onclick="jQuery('#loginForm').attr('action','?page=inscription');jQuery('#loginForm').submit();">
-                        <input type="submit" value="Connexion">
+                        <input style="margin-top:15px;margin-right:62px;" type="button" id="inscrire" value="S'inscrire" onclick="jQuery('#loginForm').attr('action','?page=inscription');jQuery('#loginForm').submit();">
+                        <input style="margin-top:15px;" type="submit" value="Connexion">
+                        <a style="cursor:pointer;text-decoration: underline;position:absolute;top:67px;right:20px;font-size:10px;" onclick="jQuery('.overlay').show();">Réinitialisation de mot de passe</a>
                     </form>
+                </div>
+                <div class="overlay" style="display:none;cursor:pointer;">
+                    <div class="boxing" style="cursor:default;">
+                        <h2>Réinitialisation de mot de passe</h2>
+                        <form method="post" action="?page=resetPassword">
+                            <div><label for="addrCourriel">Votre courriel : </label><input style="width:250px;" id="addrCourriel" name="addrCourriel" value="" required/></div>
+                            <a style="cursor:pointer;position:absolute;top:-13px;right:-12px; border:1px solid white;background:#353535;padding:2px 5px;" onclick="jQuery('.overlay').hide();">X</a>
+                            <input style="float:left;" type="button" onclick="jQuery('.overlay').hide();" value="Annuler">
+                            <input style="float:right;margin-right:10px;" type="submit" value="Envoyer un nouveau mot de passe" />
+                        </form>
+                    </div>
                 </div>
                 <nav>
                     <ul>

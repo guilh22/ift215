@@ -1,4 +1,4 @@
 <h1>Inscription</h1>
 <p>
-    Votre inscription à l'évènement est terminée, un courriel vous a été envoyé afin de confirmer votre inscription et celui-ci contient le lien si jamais vous avez changé d'idée poue le paiement en ligne.
+    Votre inscription à l'évènement est terminée, vous recevrez un courriel confirmant votre inscription. Vous pouvez payez en ligne à tous moment grace a vôtre courriel de confirmation.
 </p>

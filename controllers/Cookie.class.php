@@ -22,10 +22,17 @@ class Cookie {
         if(isset($_COOKIE["ift215"])){ 
             $key = unserialize( str_replace(array("\\"),array(""),$_COOKIE["ift215"]));  
             if(count($key) > 1){
-                foreach($key as $k){
-                    self::$instance->myCookie[$k] = unserialize( str_replace(array("\\"),array(""),$_COOKIE[$k]));
+                foreach($key as $k => $c){   
+                    if(is_array($c)){
+                        foreach($c as $c2){   
+                            self::$instance->myCookie["forum"][str_replace("_"," ",$c2)] = unserialize( str_replace(array("\\"),array(""),$_COOKIE[$c2]));
+                        }
+                    }else{
+                        self::$instance->myCookie[$c] = unserialize( str_replace(array("\\"),array(""),$_COOKIE[$c]));
+                    }
                 }
             }
+            //debug(self::$instance->myCookie);
         }
         if(count($key) == 0){
             self::$instance->myCookie = array(
@@ -34,7 +41,7 @@ class Cookie {
                 "forum" => array(
                     "Les LANs" => array(
                         "Le trop mega cool lan party" => array(
-                            "auteur" => "Administrateur",
+                            "auteur" => "Admin",
                             "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
                             "content" => array(
                                 "userPostID" => 1,
@@ -53,7 +60,7 @@ class Cookie {
                                             )//fin reply
                                         ), //fin content
                                         "consultation" => 22,
-                                        "date" => "13-02-2013",
+                                        "date" => "2013-02-13 14:36",
                                         "close" => "false"
                                     ),
                                     array(
@@ -68,12 +75,13 @@ class Cookie {
                                             )//fin reply
                                         ), //fin content
                                         "consultation" => 22,
-                                        "date" => "13-02-2013",
+                                        "date" => "2013-02-13 18:12",
                                         "close" => "false"
                                     )
                                 )//fin des reply
                             ), //fin content
                             "consultation" => 22,
+                            "nbPost" => 3,
                             "date" => "13-02-2013",
                             "close" => "false"
                         )//fin du lan
@@ -93,7 +101,8 @@ class Cookie {
                                 )//fin reply
                             ), //fin content
                             "consultation" => 22,
-                            "date" => "13-02-2013",
+                            "nbPost" => 1,
+                            "date" => "2012-02-13 19:42",
                             "close" => "false"
                         )
                     )
@@ -147,18 +156,36 @@ class Cookie {
             $tmp = serialize($arr);
             setcookie("ift215", $tmp, time()+3600*24*30);
         }else if($key != ""){
-            self::$instance->myCookie[$key] = $val;
+            self::$instance->myCookie[$key] = $val;  
             self::$instance->setCookie(self::$instance->myCookie);
         }
     }
     public function setCookie($theCookie){
         $key = array();
+        $keyForum = array();
         foreach($theCookie as $k => $c){
-            $tmp = serialize($c);
-            setcookie($k, $tmp, time()+3600*24*30);
-            $key[] = $k;
+            if($k == "forum"){
+                foreach($c as $k2 => $c2){
+                    $tmp = serialize($c2);
+                    setcookie(str_replace(" ","_",$k2), $tmp, time()+3600*24*30);
+                    $keyForum[] = str_replace(" ","_",$k2);
+                }
+            }else{
+                $tmp = serialize($c);
+                setcookie($k, $tmp, time()+3600*24*30);
+                $key[] = $k;
+            }
         }
+        $key["forum"] = $keyForum;
         $tmp = serialize($key);
+        /*
+        print "<pre>";
+        print_r($theCookie);
+        print_r($keyForum);
+        print_r($key);
+        print "</pre>";
+        die();
+        */
         setcookie("ift215", $tmp, time()+3600*24*30);
     }
     
