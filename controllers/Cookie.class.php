@@ -40,7 +40,7 @@ class Cookie {
                 "isConnected" => false, 
                 "forum" => array(
                     "Les LANs" => array(
-                        "Le trop mega cool lan party" => array(
+                        "OP Gamer'Z Style" => array(
                             "auteur" => "Admin",
                             "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
                             "content" => array(

@@ -272,7 +272,7 @@
                     }
                 }else{
                     include 'view/forum_lvl1.php';
-                    if($USER->isConnected()){
+                    if($USER->isConnected() && $sujet != "Les LANs"){
                         include 'view/makeSubject.php';
                     }
                 }
