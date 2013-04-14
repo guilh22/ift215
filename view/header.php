@@ -26,7 +26,7 @@
                     <div class="boxing" style="cursor:default;">
                         <h2>Réinitialisation de mot de passe</h2>
                         <form method="post" action="?page=resetPassword">
-                            <div><label for="addrCourriel">Votre courriel : </label><input style="width:250px;" id="addrCourriel" name="addrCourriel" value="" required/></div>
+                            <div><label for="addrCourriel">Votre courriel : </label><input type="email" style="width:250px;" id="addrCourriel" name="addrCourriel" value="" required/></div>
                             <a style="cursor:pointer;position:absolute;top:-13px;right:-12px; border:1px solid white;background:#353535;padding:2px 5px;" onclick="jQuery('.overlay').hide();">X</a>
                             <input style="float:left;" type="button" onclick="jQuery('.overlay').hide();" value="Annuler">
                             <input style="float:right;margin-right:10px;" type="submit" value="Envoyer un nouveau mot de passe" />

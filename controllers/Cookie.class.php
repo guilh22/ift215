@@ -40,7 +40,7 @@ class Cookie {
                 "isConnected" => false, 
                 "forum" => array(
                     "Les LANs" => array(
-                        "OP Gamer'Z Style" => array(
+                        "OP GamerZ Style" => array(
                             "auteur" => "Admin",
                             "photo" => "http://www.ift215.orbitwebsite.com/images/users/avatar.jpg",
                             "content" => array(
